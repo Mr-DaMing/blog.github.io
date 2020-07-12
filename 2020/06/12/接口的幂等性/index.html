@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>Tag: Hexo | Hexo</title>
+  <title>接口的幂等性 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://mr-daming.github.io/tags/Hexo/index.html">
+  <meta name="description" content="心沉潜于海底，幽暗保留它的秘密。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="接口的幂等性">
+<meta property="og:url" content="https://mr-daming.github.io/2020/06/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="心沉潜于海底，幽暗保留它的秘密。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-12T13:02:06.000Z">
+<meta property="article:modified_time" content="2020-07-12T13:18:59.794Z">
 <meta property="article:author" content="Daaa~Ming">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -183,108 +188,198 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-接口的幂等性" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" class="archive-article-date">
-        <time datetime="2020-07-10T04:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" target="_blank">Hexo常用命令及yilia主题基本配置</a>
   
+    <h1 class="article-title" itemprop="name">
+      接口的幂等性
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2020/06/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" class="archive-article-date">
+        <time datetime="2020-06-12T13:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-12</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">836字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><em>心沉潜于海底，幽暗保留它的秘密。</em></p>
+</blockquote>
+<a id="more"></a>
+
+<p><strong>幂等</strong>原先是数学中的一个概念，表示进行1次变换和进行N次变换产生的效果相同。  </p>
+<p>接口幂等性就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。</p>
+<h5 id="幂等和防止重复提交的区别："><a href="#幂等和防止重复提交的区别：" class="headerlink" title="幂等和防止重复提交的区别："></a>幂等和防止重复提交的区别：</h5><ul>
+<li>防止重复提交更多的是不让用户发起多次一样的请求，通常的处理方式是将提交的按钮置灰。  </li>
+<li>幂等更多的是在重复请求已经发生，或是无法避免的情况下，采取一定的技术手段让这些重复请求不给系统带来副作用。</li>
+</ul>
+<p><strong>增删改查都需要保证幂等？</strong><br>查询接口和删除接口具有天然的幂等性，新增和更新才需要考虑幂等性的问题。</p>
+<p><strong>如何利用token实现接口幂等性：</strong>  </p>
+<ol>
+<li>服务端提供发送token的接口</li>
+<li>客户端在执行某项业务前，先请求接口，获取token值，同时服务端把token存于redis或jvm内存中</li>
+<li>客户端调用业务接口时，将token携带过去，一般是放于header中</li>
+<li>服务端验证token：若redis或jvm中存在，则表示是初次提交，就执行业务逻辑处理，并删除token；若redis或jvm中不存在，则表示该次提交是重复提交，不予处理逻辑，直接返回客户端提示即可</li>
+</ol>
+<p><strong>如何利用加锁方式实现接口幂等性：</strong>  </p>
+<ol>
+<li>对需要保证幂等性的接口进行加锁lock处理，如：以用户唯一标识 + 请求url + ip来作为锁的key，服务请求最长时间为锁的有效期</li>
+<li>如果某个请求中对应的key不存在或者已过期则表示正常请求，否则为异常请求，即该请求不予处理</li>
+<li>方法执行完后需要unlock处理，在核心业务处理前的异常情况，需要在finally中unlock处理（如在支付业务中，实际支付的第三方调用前出现了异常，是需要移除锁的，而支付调用后就不必移除该锁了，否则会出现多次支付的情况），以保证该用户的下次正常请求</li>
+</ol>
+<p><strong>token方式中的关键点：先删除token，还是后删除token？</strong>  </p>
+<ul>
+<li>后删除token：如果进行业务处理成功后，删除redis中的token失败了，这样就导致了有可能会发生重复请求，因为token没有被删除。这个问题其实是数据库和缓存redis数据不一致问题。</li>
+<li>先删除token：如果系统出现问题导致业务处理出现异常，业务处理没有成功，接口调用方也没有获取到明确的结果，然后进行重试，但token已经删除掉了，服务端判断token不存在，认为是重复请求，就直接返回了，无法进行业务处理了。</li>
+<li>先删除token可以保证不会因为重复请求，业务数据出现问题。出现业务异常，可以让调用方配合处理一下，重新获取新的token，再次由业务调用方重新发起请求</li>
+</ul>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Daaa~Ming
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://mr-daming.github.io/2020/06/12/接口的幂等性/" title="接口的幂等性" target="_blank">https://mr-daming.github.io/2020/06/12/接口的幂等性/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2020-07-10T01:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2020/07/08/3%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-Filter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          3种自定义过滤器 - Filter
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" target="_blank">GitHub搭建Hexo博客</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#幂等和防止重复提交的区别："><span class="toc-number">1.</span> <span class="toc-text">幂等和防止重复提交的区别：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+    </div>
+</aside>
 
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -327,9 +422,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
