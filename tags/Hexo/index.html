@@ -24,8 +24,6 @@
     <link rel="icon" href="/img/erji.ico">
   
   
-    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
-  
   <link rel="stylesheet" type="text/css" href="/./main.a5fda8.css">
   <style type="text/css">
     
@@ -355,10 +353,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      document.title = "(つェ⊂) 还记得年少初见那一刹~ " + originTitle;
+      document.title = "还记得年少初见那一刹~ " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      document.title = "风花雪月都远不及Ta~ " + originTitle;
       titleTime = setTimeout(function () {
         document.title = originTitle;
       }, 2000);
@@ -420,15 +418,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Filter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
             
             <div class="clearfix"></div>
@@ -515,7 +513,7 @@
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
-  	  		<div class="aboutme-wrap" id="aboutme"><br><br><br><br><br><br><br><br><br><br><br>想孤身前往去看一场花事<br><br>如果午后微雨突袭<br><br>你恰好渡船而过<br><br>不妨让我们在春柳拂面的桥头相见<br><br><br><br><br><br><br><br><br>是的<br>你没看错<br>我不是一个程序猿<br>而是一个诗人</div>
+  	  		<div class="aboutme-wrap" id="aboutme"><br><br><br><br><br><br><br><br><br><br><br>想孤身前往去看一场花事<br><br>如果午后微雨突袭<br><br>你恰好渡船而过<br><br>不妨让我们在春柳拂面的桥头相见<br><br><br><br><br><br><br><br><br>是的<br>你没看错<br>我不是一个程序猿<br>而是一位诗人</div>
   	  	
     	</section>
     
@@ -592,17 +590,20 @@
 
   
   
-<script type="text/javascript" src="/plugins/activate-power-mode/activate-power-mode.js"></script>
-<script>
-  POWERMODE.colorful = true; // make power mode colorful
-  POWERMODE.shake = false; // turn off shake
-  document.body.addEventListener('input', POWERMODE);
-</script>
-
   
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
   
+  
+  <script type="text/javascript" src="/lib/snow.js"></script>
+  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
+  <script>
+    snow.down();
+    $(window).resize(function() {
+      $("canvas").css("z-index","500").remove();
+      snow.down();
+    });
+  </script>
   
 </body>
 
