@@ -6,21 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>GitHub搭建Hexo博客 | daaa~ming</title>
+  <title>coding 踩坑记 - 持续更新 | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
+  <meta name="description" content="春生、夏长、秋收、冬藏，然后循环，似乎一切照旧，但似乎一切又不同了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub搭建Hexo博客">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="coding 踩坑记 - 持续更新">
+<meta property="og:url" content="https://mr-daming.github.io/2020/07/15/coding%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
+<meta property="og:description" content="春生、夏长、秋收、冬藏，然后循环，似乎一切照旧，但似乎一切又不同了。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-10T01:41:58.000Z">
-<meta property="article:modified_time" content="2020-07-15T07:11:21.566Z">
+<meta property="article:published_time" content="2020-07-15T06:36:10.000Z">
+<meta property="article:modified_time" content="2020-07-15T06:50:35.373Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="神坑">
+<meta property="article:tag" content="源码">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,14 +192,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-github搭建hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-coding踩坑记-持续更新" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      GitHub搭建Hexo博客
+      coding 踩坑记 - 持续更新
     </h1>
   
 
@@ -209,8 +211,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2020-07-10T01:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+<a href="/2020/07/15/coding%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" class="archive-article-date">
+        <time datetime="2020-07-15T06:36:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
 </a>
 
   
@@ -223,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">785字</span>
+      <span class="post-count">1.5k字</span>
     </span>
   </span>
 
@@ -232,7 +234,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -244,90 +246,34 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>不要祝我一帆风顺，祝我乘风破浪吧;<br>时光会证明，乘风破浪才能一往无前。</p>
+<p>春生、夏长、秋收、冬藏，然后循环，似乎一切照旧，但似乎一切又不同了。</p>
 </blockquote>
 <a id="more"></a>
-
-
-<ol>
-<li><p>本地安装node.js，并且其配置环境</p>
-</li>
-<li><p>安装Git和配置好Git环境</p>
-</li>
-<li><p>注册GitHub，并建立一个项目，项目名称：账户名.github.io，并勾选 Initialize this repository with a README 选项（创建完成后，进入该新建的项目，找到settings按钮，点击进入并拉到最下面，会看到GitHub Pages网址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your site is published at https:&#x2F;&#x2F;账户名.github.io&#x2F;</span><br></pre></td></tr></table></figure>
-<p>该网址就是github生成的，可以直接访问）</p>
-</li>
-<li><p>安装Hexo  </p>
-<ol>
-<li><p>本地创建好安装地址的文件夹，进入文件夹使用 <em>Git Bash Here</em> 打开命令行，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br></pre></td></tr></table></figure>
-<p>开始安装Hexo，</p>
-</li>
-<li><p>成功后，检查是否安装成功，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<p>显示版本号即为成功</p>
-</li>
-<li><p>初始化该文件夹（这一步会很慢，耐心等待），看到最后的”Start blogging with Hexo！”即表示成功。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装所需组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
-<li><p>生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
-<li><p>启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>看到如下地址（<em><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></em>）即表示启动成功，输入改地址即可打开本地样式的博客页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO Start processing</span><br><span class="line">INFO Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>如果端口被占用，页面是无法打开的，这时候遇到问题不要慌，先把手机拿。。。哦，先 Ctrl + C 停止服务，然后输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 端口号</span><br></pre></td></tr></table></figure>
-即可改变端口</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>绑定GitHub page和 Hexo  </p>
-<ol>
-<li><p>检查是否已经生成过ssh key，git bash中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br></pre></td></tr></table></figure></li>
-<li><p>如果能进入到.ssh文件目录下，则表示之前已经生成过.ssh秘钥，然后就可以直接使用，否则执行以下命令生成秘钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name ‘xxxxx’ </span><br><span class="line">git config –global user.email ‘xxx@xx.xxx’</span><br></pre></td></tr></table></figure>
-<p>生成秘钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C ‘上面的邮箱’</span><br></pre></td></tr></table></figure>
+<h4 id="BigDecimal的精度丢失"><a href="#BigDecimal的精度丢失" class="headerlink" title="BigDecimal的精度丢失"></a>BigDecimal的精度丢失</h4><p>在涉及到金额等对小数精度要一定要求时，大多都会用到<strong>BigDecimal</strong>这个类，但是在我们使用过程中发现依然会有一些情况导致精度丢失的问题出现，比如如下情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal bigDecimal &#x3D; new BigDecimal(1.330);</span><br><span class="line">System.out.println(bigDecimal);&#x2F;&#x2F;输出：1.3300000000000000710542735760100185871124267578125</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>然后按3个回车，即可在.ssh目录下(C盘用户文件夹下)生成两个文件：id_rsa（私有秘钥）和id_rsa.pub（公有密钥）</p>
+<p><strong>Why ?</strong>  </p>
 </blockquote>
-</li>
-<li><p>添加密钥到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>添加生成的SSH key到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure></li>
-<li><p>登录github，点击头像下的settings - SSH and GPG keys - New SSH key(新建ssh key)，然后将id_rsa.pub文件里的内容复制进去</p>
-</li>
-<li><p>测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>到这里就表示已经搭建成功了，可以访问<code>https://账户名.github.io/</code>来进入你的博客了  </p>
-</li>
-</ol>
-</li>
-</ol>
+<p>我们知道long可以准确存储19位数字，而double只能准备存储16位数字。double由于有exp位，可以存16位以上的数字，但是需要以低位的不精确作为代价，所以它们的编码就决定了这样的结果。而在 new BigDecimal(double val) 的源码上也已经给出了提示（利用translation插件翻译了提示部分）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">  &#x2F;**</span><br><span class="line">   * Translates a &#123;@code double&#125; into a &#123;@code BigDecimal&#125; which</span><br><span class="line">   * is the exact decimal representation of the &#123;@code double&#125;&#39;s</span><br><span class="line">   * binary floating-point value.  The scale of the returned</span><br><span class="line">   * &#123;@code BigDecimal&#125; is the smallest value such that</span><br><span class="line">   * &lt;tt&gt;(10&lt;sup&gt;scale&lt;&#x2F;sup&gt; &amp;times; val)&lt;&#x2F;tt&gt; is an integer.</span><br><span class="line">   * &lt;p&gt;</span><br><span class="line">   * &lt;b&gt;Notes:&lt;&#x2F;b&gt;</span><br><span class="line">   * 1、此构造方法的结果有一定的不可预知的。 </span><br><span class="line">*    但它实际上等于0.1000000000000000055511151231257827021181583404541015625。 </span><br><span class="line">*    这是因为0.1不能精确为表示double （或，对于这个问题，因为任何有限长度的二进制小数）。 </span><br><span class="line">*    因此，正在被传递给构造的值不是正好等于0.1，虽然表面上有人可能会认为写new BigDecimal(0.1)在Java中创建BigDecimal正好等于0.1（1未测量的值，为1的比例），</span><br><span class="line">   * 2、该String的构造，在另一方面，是完全可以预知的：写入new BigDecimal(&quot;0.1&quot;)创建BigDecimal 正好等于0.1，正如人们所期望的那样。 </span><br><span class="line">*    因此，通常建议的String构造中优先使用这一个。</span><br><span class="line">   * 3、当double必须用作源BigDecimal ，注意，此构造提供了一个精确的转换; </span><br><span class="line">*    它没有给出相同的结果，将所述double到一个String使用Double.toString(double)方法，然后使用BigDecimal(String)构造。 </span><br><span class="line">*    为了得到这一结果，用static valueOf(double)方法。</span><br><span class="line">   *</span><br><span class="line">   * @param val &#123;@code double&#125; value to be converted to</span><br><span class="line">   *        &#123;@code BigDecimal&#125;.</span><br><span class="line">   * @throws NumberFormatException if &#123;@code val&#125; is infinite or NaN.</span><br><span class="line">   *&#x2F;</span><br><span class="line">  public BigDecimal(double val) &#123;</span><br><span class="line">      this(val,MathContext.UNLIMITED);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以按照源码的建议，使用如下方式之一即可解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方式一：</span><br><span class="line">BigDecimal bigDecimal &#x3D; new BigDecimal(&quot;1.330&quot;);&#x2F;&#x2F;输出：1.330</span><br><span class="line">&#x2F;&#x2F;方式二：</span><br><span class="line">BigDecimal bigDecimal &#x3D; BigDecimal.valueOf(1.330);&#x2F;&#x2F;输出：1.33</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="JPA的JpaRepository-save-方法会将null值保存"><a href="#JPA的JpaRepository-save-方法会将null值保存" class="headerlink" title="JPA的JpaRepository.save()方法会将null值保存"></a>JPA的JpaRepository.save()方法会将null值保存</h4><p>在数据新增的情况下调用save()是正常的，但是当需要修某些字段（不是全部修改）时，就会出现未修改的字段全部被置成了null的情况  </p>
 <blockquote>
-<p>hexo文件结构：</p>
-<blockquote>
-<ul>
-<li>node_modules：是依赖包</li>
-<li>public：存放生成的页面</li>
-<li>scaffolds：命令生成的文章等的模板</li>
-<li>source：命令创建的各种文章</li>
-<li>themes：主题</li>
-<li>_config.yml：整个博客的配置</li>
-<li>package.json：项目所需模块项目的配置信息</li>
-<li>db.json：source解析到的，会存放文件目录等一些信息  </li>
-</ul>
+<p><strong>Why ?</strong>  </p>
 </blockquote>
-</blockquote>
-<p>下一篇会整理一下<a href="https://mr-daming.github.io/2020/07/10/hexo常用命令及yilia主题基本配置说明/">Hexo常用命令以及yilia主题的基本配置</a></p>
+<p>JpaRepository间接继承了CrudRepository接口，SimpleJpaRepository间接实现JpaRepository接口，save()方法定义在CrudRepository里，<br>所以 save()方法（即SimpleJpaRepository.save()）的源码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   @Transactional</span><br><span class="line">@Override</span><br><span class="line">public &lt;S extends T&gt; S save(S entity) &#123;</span><br><span class="line">	if (entityInformation.isNew(entity)) &#123;&#x2F;&#x2F;不存在就新增</span><br><span class="line">		em.persist(entity);</span><br><span class="line">		return entity;</span><br><span class="line">	&#125; else &#123;&#x2F;&#x2F;存在就merge（更新），注：在merge的方法中并没有对null值做过滤处理</span><br><span class="line">		return em.merge(entity);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建议处理方法：  </p>
+<ol>
+<li>先按照该实体条件（修改时提供的条件，往往是主键或其他能用来确定唯一数据的字段）查询一次，</li>
+<li>若没有则新增</li>
+<li>否则就是要更新，这时我们已经拿到了原数据（查询的结果），然后将修改的数据赋值给原数据，然后再调用save方法即可实现修改部分数据而不影响其他数据，举例如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 新增或更新</span><br><span class="line"> * @param query 条件</span><br><span class="line"> * @param entity 更新内容（为null的字段不更新）</span><br><span class="line"> * @return</span><br><span class="line"> * @throws InvocationTargetException</span><br><span class="line"> * @throws IllegalAccessException</span><br><span class="line"> *&#x2F;</span><br><span class="line">public V insertOrUpdate(V query, V entity) throws InvocationTargetException, IllegalAccessException &#123;</span><br><span class="line">    Example&lt;V&gt; example &#x3D; Example.of(query);</span><br><span class="line">    Optional&lt;V&gt; one &#x3D; jpaRepository.findOne(example);</span><br><span class="line">    if (!one.isPresent()) &#123;</span><br><span class="line">        return jpaRepository.save(entity);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        MyBeanUtils.copyNotNullProperties(entity, one.get());&#x2F;&#x2F;敲黑板警告</span><br><span class="line">        return jpaRepository.save(one.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+需要注意的是，我们在赋值时，通常使用的是 <code>BeanUtils.copyProperties(Object source, Object target)</code> 方法，但是该方法会将null值一并赋值到新的对象上去，而 <code>BeanUtils.copyProperties(Object source, Object target, @Nullable Class&lt;?&gt; editable, @Nullable String... ignoreProperties)</code> 方法来过滤某些字段时，需要我们指定需要过滤的值，在通用性考虑上，显然我们在此是不明确哪些字段需要过滤的（根据不同场景会需要改变不同字段值），所以我们需要提供一个不赋值null属性的通用赋值方法，我这里是采用了新建内部类 - MyBeanUtils 去继承 BeanUtils，并提供 copyNotNullProperties()  方法，该方法在 BeanUtils.copyProperties() 的基础上做了改动（这也是为什么要继承BeanUtils类的原因），并做了过滤null值处理，代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 自定义的BeanUtils内部类</span><br><span class="line"> *&#x2F;</span><br><span class="line">protected static class MyBeanUtils extends BeanUtils&#123;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 非null赋值&lt;p&#x2F;&gt;</span><br><span class="line">     * 源对象为空的属性不会进行赋值操作</span><br><span class="line">     * @param source 源文件</span><br><span class="line">     * @param target 目标文件</span><br><span class="line">     * @throws BeansException</span><br><span class="line">     * @throws InvocationTargetException</span><br><span class="line">     * @throws IllegalAccessException</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public static void copyNotNullProperties(Object source, Object target) throws BeansException, InvocationTargetException, IllegalAccessException &#123;</span><br><span class="line"></span><br><span class="line">        Assert.notNull(source, &quot;Source must not be null&quot;);</span><br><span class="line">        Assert.notNull(target, &quot;Target must not be null&quot;);</span><br><span class="line"></span><br><span class="line">        Class&lt;?&gt; actualEditable &#x3D; target.getClass();</span><br><span class="line">        PropertyDescriptor[] targetPds &#x3D; getPropertyDescriptors(actualEditable);</span><br><span class="line">        </span><br><span class="line">        for (PropertyDescriptor targetPd : targetPds) &#123;</span><br><span class="line">            Method writeMethod &#x3D; targetPd.getWriteMethod();</span><br><span class="line">            if (writeMethod !&#x3D; null) &#123;</span><br><span class="line">                PropertyDescriptor sourcePd &#x3D; getPropertyDescriptor(source.getClass(), targetPd.getName());</span><br><span class="line">                if (sourcePd !&#x3D; null &amp;&amp; </span><br><span class="line">                    Objects.nonNull(sourcePd.getReadMethod().invoke(source))) &#123;&#x2F;&#x2F;对null值过滤</span><br><span class="line">                    Method readMethod &#x3D; sourcePd.getReadMethod();</span><br><span class="line">                    if (readMethod !&#x3D; null &amp;&amp;</span><br><span class="line">                            ClassUtils.isAssignable(writeMethod.getParameterTypes()[0], readMethod.getReturnType())) &#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            if (!Modifier.isPublic(readMethod.getDeclaringClass().getModifiers())) &#123;</span><br><span class="line">                                readMethod.setAccessible(true);</span><br><span class="line">                            &#125;</span><br><span class="line">                            Object value &#x3D; readMethod.invoke(source);</span><br><span class="line">                            if (!Modifier.isPublic(writeMethod.getDeclaringClass().getModifiers())) &#123;</span><br><span class="line">                                writeMethod.setAccessible(true);</span><br><span class="line">                            &#125;</span><br><span class="line">                            writeMethod.invoke(target, value);</span><br><span class="line">                        &#125; catch (Throwable ex) &#123;</span><br><span class="line">                            throw new FatalBeanException(&quot;Could not copy property &#39;&quot; + targetPd.getName() + &quot;&#39; from source to target&quot;, ex);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
     
 
@@ -342,7 +288,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/10/github搭建hexo博客/" title="GitHub搭建Hexo博客" target="_blank">https://mr-daming.github.io/2020/07/10/github搭建hexo博客/</a>
+          <a href="https://mr-daming.github.io/2020/07/15/coding踩坑记-持续更新/" title="coding 踩坑记 - 持续更新" target="_blank">https://mr-daming.github.io/2020/07/15/coding踩坑记-持续更新/</a>
         </li>
         
         <li>
@@ -364,7 +310,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">神坑</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">源码</a>
         		</li>
       		
 		</ul>
@@ -383,15 +337,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hexo常用命令及yilia主题基本配置
-        
-      </div>
-    </a>
   
+    <a href="/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">业务处理器 - 策略模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -416,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#BigDecimal的精度丢失"><span class="toc-number">1.</span> <span class="toc-text">BigDecimal的精度丢失</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JPA的JpaRepository-save-方法会将null值保存"><span class="toc-number">2.</span> <span class="toc-text">JPA的JpaRepository.save()方法会将null值保存</span></a></li></ol>
                     </div>
                 </span>
             </div>
