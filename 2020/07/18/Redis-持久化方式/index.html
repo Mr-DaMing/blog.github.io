@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>接口的幂等性 | daaa~ming</title>
+  <title>Redis 持久化方式 | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="心沉潜于海底，幽暗保留它的秘密。">
+  <meta name="description" content="人应该得到美好的事物，但不应由它来决定悲喜得失。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="接口的幂等性">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/index.html">
+<meta property="og:title" content="Redis 持久化方式">
+<meta property="og:url" content="https://mr-daming.github.io/2020/07/18/Redis-%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="心沉潜于海底，幽暗保留它的秘密。">
+<meta property="og:description" content="人应该得到美好的事物，但不应由它来决定悲喜得失。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-12T13:02:06.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:52:22.415Z">
+<meta property="article:published_time" content="2020-07-18T00:25:49.000Z">
+<meta property="article:modified_time" content="2020-07-17T14:33:50.918Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,14 +190,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-接口的幂等性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Redis-持久化方式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      接口的幂等性
+      Redis 持久化方式
     </h1>
   
 
@@ -209,8 +209,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" class="archive-article-date">
-        <time datetime="2020-07-12T13:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
+<a href="/2020/07/18/Redis-%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-07-18T00:25:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
 </a>
 
   
@@ -223,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">836字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -232,7 +232,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -244,32 +244,35 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>心沉潜于海底，幽暗保留它的秘密。</p>
+<p>人应该得到美好的事物，但不应由它来决定悲喜得失。</p>
 </blockquote>
 <a id="more"></a>
-
-<p><strong>幂等</strong>原先是数学中的一个概念，表示进行1次变换和进行N次变换产生的效果相同。  </p>
-<p>接口幂等性就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。</p>
-<h5 id="幂等和防止重复提交的区别："><a href="#幂等和防止重复提交的区别：" class="headerlink" title="幂等和防止重复提交的区别："></a>幂等和防止重复提交的区别：</h5><ul>
-<li>防止重复提交更多的是不让用户发起多次一样的请求，通常的处理方式是将提交的按钮置灰。  </li>
-<li>幂等更多的是在重复请求已经发生，或是无法避免的情况下，采取一定的技术手段让这些重复请求不给系统带来副作用。</li>
+<p>redis持久化的简单梳理。</p>
+<h3 id="一般分为3种持久化的方式："><a href="#一般分为3种持久化的方式：" class="headerlink" title="一般分为3种持久化的方式："></a>一般分为3种持久化的方式：</h3><ol>
+<li>RDB 持久化可以在指定的时间间隔内生成数据集的时间点快照（point-in-time snapshot）。</li>
+<li>AOF 持久化记录服务器执行的所有写操作命令到文件中，并在服务器启动时，通过重新执行这些命令来还原数据集。</li>
+<li>Redis 还可以同时使用 AOF 持久化和 RDB 持久化。 在这种情况下， 当 Redis 重启时， 它会优先使用 AOF 文件来还原数据集， 因为 AOF 文件保存的数据集通常比 RDB 文件所保存的数据集更完整。</li>
+</ol>
+<h3 id="RDB-的优点"><a href="#RDB-的优点" class="headerlink" title="RDB 的优点:"></a>RDB 的优点:</h3><ul>
+<li>RDB是一种表示某个即时点的Redis数据的紧凑文件。RDB文件适合用于备份。例如，你可能想要每小时归档最近24小时的RDB文件，每天保存近30天的RDB快照。这允许你很容易的恢复不同版本的数据集以容灾。</li>
+<li>RDB非常适合于灾难恢复，作为一个紧凑的单一文件，可以被传输到远程的数据中心，或者是Amazon S3(可能得加密)。</li>
+<li>RDB最大化了Redis的性能，因为Redis父进程持久化时唯一需要做的是启动(fork)一个子进程，由子进程完成所有剩余工作。父进程实例不需要执行像磁盘IO这样的操作。</li>
+<li>RDB在重启保存了大数据集的实例时比AOF要快。</li>
 </ul>
-<h4 id="增删改查都需要保证幂等？"><a href="#增删改查都需要保证幂等？" class="headerlink" title="增删改查都需要保证幂等？"></a>增删改查都需要保证幂等？</h4><p>查询接口和删除接口具有天然的幂等性，新增和更新才需要考虑幂等性的问题。</p>
-<h4 id="如何利用token实现接口幂等性："><a href="#如何利用token实现接口幂等性：" class="headerlink" title="如何利用token实现接口幂等性："></a>如何利用token实现接口幂等性：</h4><ol>
-<li>服务端提供发送token的接口</li>
-<li>客户端在执行某项业务前，先请求接口，获取token值，同时服务端把token存于redis或jvm内存中</li>
-<li>客户端调用业务接口时，将token携带过去，一般是放于header中</li>
-<li>服务端验证token：若redis或jvm中存在，则表示是初次提交，就执行业务逻辑处理，并删除token；若redis或jvm中不存在，则表示该次提交是重复提交，不予处理逻辑，直接返回客户端提示即可</li>
-</ol>
-<h4 id="如何利用加锁方式实现接口幂等性："><a href="#如何利用加锁方式实现接口幂等性：" class="headerlink" title="如何利用加锁方式实现接口幂等性："></a>如何利用加锁方式实现接口幂等性：</h4><ol>
-<li>对需要保证幂等性的接口进行加锁lock处理，如：以用户唯一标识 + 请求url + ip来作为锁的key，服务请求最长时间为锁的有效期</li>
-<li>如果某个请求中对应的key不存在或者已过期则表示正常请求，否则为异常请求，即该请求不予处理</li>
-<li>方法执行完后需要unlock处理，在核心业务处理前的异常情况，需要在finally中unlock处理（如在支付业务中，实际支付的第三方调用前出现了异常，是需要移除锁的，而支付调用后就不必移除该锁了，否则会出现多次支付的情况），以保证该用户的下次正常请求</li>
-</ol>
-<h4 id="token方式中的关键点：先删除token，还是后删除token？"><a href="#token方式中的关键点：先删除token，还是后删除token？" class="headerlink" title="token方式中的关键点：先删除token，还是后删除token？"></a>token方式中的关键点：先删除token，还是后删除token？</h4><ul>
-<li>后删除token：如果进行业务处理成功后，删除redis中的token失败了，这样就导致了有可能会发生重复请求，因为token没有被删除。这个问题其实是数据库和缓存redis数据不一致问题。</li>
-<li>先删除token：如果系统出现问题导致业务处理出现异常，业务处理没有成功，接口调用方也没有获取到明确的结果，然后进行重试，但token已经删除掉了，服务端判断token不存在，认为是重复请求，就直接返回了，无法进行业务处理了。</li>
-<li>先删除token可以保证不会因为重复请求，业务数据出现问题。出现业务异常，可以让调用方配合处理一下，重新获取新的token，再次由业务调用方重新发起请求</li>
+<h3 id="RDB-的缺点："><a href="#RDB-的缺点：" class="headerlink" title="RDB 的缺点："></a>RDB 的缺点：</h3><ul>
+<li>当你需要在Redis停止工作(例如停电)时最小化数据丢失，RDB可能不太好。你可以配置不同的保存点(save point)来保存RDB文件(例如，至少5分钟和对数据集100次写之后，但是你可以有多个保存点)。然而，你通常每隔5分钟或更久创建一个RDB快照，所以一旦Redis因为任何原因没有正确关闭而停止工作，你就得做好最近几分钟数据丢失的准备了。</li>
+<li>RDB需要经常调用fork()子进程来持久化到磁盘。如果数据集很大的话，fork()比较耗时，结果就是，当数据集非常大并且CPU性能不够强大的话，Redis可能会停止服务客户端几毫秒甚至一秒。AOF也需要fork()，但是你可以调整多久频率重写日志而不会有损(trade-off)持久性(durability)。</li>
+</ul>
+<h3 id="AOF-的优点"><a href="#AOF-的优点" class="headerlink" title="AOF 的优点:"></a>AOF 的优点:</h3><ul>
+<li>使用AOF Redis会更具有可持久性(durable)：你可以有很多不同的fsync策略：没有fsync，每秒fsync，每次请求时fsync。使用默认的每秒fsync策略，写性能也仍然很不错(fsync是由后台线程完成的，主线程继续努力地执行写请求)，即便你也就仅仅只损失一秒钟的写数据。</li>
+<li>AOF日志是一个追加文件，所以不需要定位，在断电时也没有损坏问题。即使由于某种原因文件末尾是一个写到一半的命令(磁盘满或者其他原因),redis-check-aof工具也可以很轻易的修复。</li>
+<li>当AOF文件变得很大时，Redis会自动在后台进行重写。重写是绝对安全的，因为Redis继续往旧的文件中追加，使用创建当前数据集所需的最小操作集合来创建一个全新的文件，一旦第二个文件创建完毕，Redis就会切换这两个文件，并开始往新文件追加。</li>
+<li>AOF文件里面包含一个接一个的操作，以易于理解和解析的格式存储。你也可以轻易的导出一个AOF文件。例如，即使你不小心错误地使用FLUSHALL命令清空一切，如果此时并没有执行重写，你仍然可以保存你的数据集，你只要停止服务器，删除最后一条命令，然后重启Redis就可以。</li>
+</ul>
+<h3 id="AOF-的缺点"><a href="#AOF-的缺点" class="headerlink" title="AOF 的缺点:"></a>AOF 的缺点:</h3><ul>
+<li>对同样的数据集，AOF文件通常要大于等价的RDB文件。</li>
+<li>AOF可能比RDB慢，这取决于准确的fsync策略。通常fsync设置为每秒一次的话性能仍然很高，如果关闭fsync，即使在很高的负载下也和RDB一样的快。不过，即使在很大的写负载情况下，RDB还是能提供能好的最大延迟保证。</li>
+<li>Redis AOF是通过递增地更新一个已经存在的状态（追加的AOF文件），像MySQL或者MongoDB一样，而RDB快照是一次又一次地从头开始创造一切，概念上更健壮。</li>
 </ul>
 
     
@@ -285,7 +288,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/12/接口的幂等性/" title="接口的幂等性" target="_blank">https://mr-daming.github.io/2020/07/12/接口的幂等性/</a>
+          <a href="https://mr-daming.github.io/2020/07/18/Redis-持久化方式/" title="Redis 持久化方式" target="_blank">https://mr-daming.github.io/2020/07/18/Redis-持久化方式/</a>
         </li>
         
         <li>
@@ -307,7 +310,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -326,18 +329,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          业务处理器 - 策略模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/11/3%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-Filter/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3种自定义过滤器 - Filter</div>
+    <a href="/2020/07/17/Mysql%E7%9A%84json%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql的json文档整理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -364,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#幂等和防止重复提交的区别："><span class="toc-number">1.</span> <span class="toc-text">幂等和防止重复提交的区别：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增删改查都需要保证幂等？"><span class="toc-number"></span> <span class="toc-text">增删改查都需要保证幂等？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何利用token实现接口幂等性："><span class="toc-number"></span> <span class="toc-text">如何利用token实现接口幂等性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何利用加锁方式实现接口幂等性："><span class="toc-number"></span> <span class="toc-text">如何利用加锁方式实现接口幂等性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#token方式中的关键点：先删除token，还是后删除token？"><span class="toc-number"></span> <span class="toc-text">token方式中的关键点：先删除token，还是后删除token？</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一般分为3种持久化的方式："><span class="toc-number">1.</span> <span class="toc-text">一般分为3种持久化的方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDB-的优点"><span class="toc-number">2.</span> <span class="toc-text">RDB 的优点:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDB-的缺点："><span class="toc-number">3.</span> <span class="toc-text">RDB 的缺点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOF-的优点"><span class="toc-number">4.</span> <span class="toc-text">AOF 的优点:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOF-的缺点"><span class="toc-number">5.</span> <span class="toc-text">AOF 的缺点:</span></a></li></ol>
                     </div>
                 </span>
             </div>

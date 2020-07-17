@@ -6,21 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>接口的幂等性 | daaa~ming</title>
+  <title>Tag: redis | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="心沉潜于海底，幽暗保留它的秘密。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="接口的幂等性">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="daaa~ming">
+<meta property="og:url" content="https://mr-daming.github.io/tags/redis/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="心沉潜于海底，幽暗保留它的秘密。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-12T13:02:06.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:52:22.415Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,200 +185,65 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-接口的幂等性" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/07/18/Redis-%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-07-18T00:25:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      接口的幂等性
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2020/07/18/Redis-%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E5%BC%8F/">Redis 持久化方式</a>
+	
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" class="archive-article-date">
-        <time datetime="2020-07-12T13:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">836字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>心沉潜于海底，幽暗保留它的秘密。</p>
-</blockquote>
-<a id="more"></a>
-
-<p><strong>幂等</strong>原先是数学中的一个概念，表示进行1次变换和进行N次变换产生的效果相同。  </p>
-<p>接口幂等性就是用户对于同一操作发起的一次请求或者多次请求的结果是一致的，不会因为多次点击而产生了副作用。</p>
-<h5 id="幂等和防止重复提交的区别："><a href="#幂等和防止重复提交的区别：" class="headerlink" title="幂等和防止重复提交的区别："></a>幂等和防止重复提交的区别：</h5><ul>
-<li>防止重复提交更多的是不让用户发起多次一样的请求，通常的处理方式是将提交的按钮置灰。  </li>
-<li>幂等更多的是在重复请求已经发生，或是无法避免的情况下，采取一定的技术手段让这些重复请求不给系统带来副作用。</li>
-</ul>
-<h4 id="增删改查都需要保证幂等？"><a href="#增删改查都需要保证幂等？" class="headerlink" title="增删改查都需要保证幂等？"></a>增删改查都需要保证幂等？</h4><p>查询接口和删除接口具有天然的幂等性，新增和更新才需要考虑幂等性的问题。</p>
-<h4 id="如何利用token实现接口幂等性："><a href="#如何利用token实现接口幂等性：" class="headerlink" title="如何利用token实现接口幂等性："></a>如何利用token实现接口幂等性：</h4><ol>
-<li>服务端提供发送token的接口</li>
-<li>客户端在执行某项业务前，先请求接口，获取token值，同时服务端把token存于redis或jvm内存中</li>
-<li>客户端调用业务接口时，将token携带过去，一般是放于header中</li>
-<li>服务端验证token：若redis或jvm中存在，则表示是初次提交，就执行业务逻辑处理，并删除token；若redis或jvm中不存在，则表示该次提交是重复提交，不予处理逻辑，直接返回客户端提示即可</li>
-</ol>
-<h4 id="如何利用加锁方式实现接口幂等性："><a href="#如何利用加锁方式实现接口幂等性：" class="headerlink" title="如何利用加锁方式实现接口幂等性："></a>如何利用加锁方式实现接口幂等性：</h4><ol>
-<li>对需要保证幂等性的接口进行加锁lock处理，如：以用户唯一标识 + 请求url + ip来作为锁的key，服务请求最长时间为锁的有效期</li>
-<li>如果某个请求中对应的key不存在或者已过期则表示正常请求，否则为异常请求，即该请求不予处理</li>
-<li>方法执行完后需要unlock处理，在核心业务处理前的异常情况，需要在finally中unlock处理（如在支付业务中，实际支付的第三方调用前出现了异常，是需要移除锁的，而支付调用后就不必移除该锁了，否则会出现多次支付的情况），以保证该用户的下次正常请求</li>
-</ol>
-<h4 id="token方式中的关键点：先删除token，还是后删除token？"><a href="#token方式中的关键点：先删除token，还是后删除token？" class="headerlink" title="token方式中的关键点：先删除token，还是后删除token？"></a>token方式中的关键点：先删除token，还是后删除token？</h4><ul>
-<li>后删除token：如果进行业务处理成功后，删除redis中的token失败了，这样就导致了有可能会发生重复请求，因为token没有被删除。这个问题其实是数据库和缓存redis数据不一致问题。</li>
-<li>先删除token：如果系统出现问题导致业务处理出现异常，业务处理没有成功，接口调用方也没有获取到明确的结果，然后进行重试，但token已经删除掉了，服务端判断token不存在，认为是重复请求，就直接返回了，无法进行业务处理了。</li>
-<li>先删除token可以保证不会因为重复请求，业务数据出现问题。出现业务异常，可以让调用方配合处理一下，重新获取新的token，再次由业务调用方重新发起请求</li>
-</ul>
-
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          Daaa~Ming
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/12/接口的幂等性/" title="接口的幂等性" target="_blank">https://mr-daming.github.io/2020/07/12/接口的幂等性/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          业务处理器 - 策略模式
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/07/11/3%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-Filter/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3种自定义过滤器 - Filter</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#幂等和防止重复提交的区别："><span class="toc-number">1.</span> <span class="toc-text">幂等和防止重复提交的区别：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增删改查都需要保证幂等？"><span class="toc-number"></span> <span class="toc-text">增删改查都需要保证幂等？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何利用token实现接口幂等性："><span class="toc-number"></span> <span class="toc-text">如何利用token实现接口幂等性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何利用加锁方式实现接口幂等性："><span class="toc-number"></span> <span class="toc-text">如何利用加锁方式实现接口幂等性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#token方式中的关键点：先删除token，还是后删除token？"><span class="toc-number"></span> <span class="toc-text">token方式中的关键点：先删除token，还是后删除token？</span></a>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -426,9 +286,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
