@@ -6,22 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>业务处理器 - 策略模式 | daaa~ming</title>
+  <title>Tag: mysql | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="我们总是以为能够自由，回过头那世界却依旧。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="业务处理器 - 策略模式">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="daaa~ming">
+<meta property="og:url" content="https://mr-daming.github.io/tags/mysql/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="我们总是以为能够自由，回过头那世界却依旧。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-14T10:12:10.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:52:29.700Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -191,201 +185,65 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-业务处理器-策略模式" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/07/17/Mysql%E7%9A%84json%E6%96%87%E6%A1%A3/" class="archive-article-date">
+        <time datetime="2020-07-17T13:36:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      业务处理器 - 策略模式
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2020/07/17/Mysql%E7%9A%84json%E6%96%87%E6%A1%A3/">Mysql的json文档整理</a>
+	
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-07-14T10:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">629字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>我们总是以为能够自由，回过头那世界却依旧。</p>
-</blockquote>
-<a id="more"></a>
-
-<h4 id="在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码"><a href="#在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码" class="headerlink" title="在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:"></a>在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if（1.equals(orderForm.getType()) &#123;</span><br><span class="line">    return &quot;处理普通订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">if(2.equals(orderForm.getType())) &#123;</span><br><span class="line">    return &quot;处理团购订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">if(3.equals(orderForm.getType())) &#123;</span><br><span class="line">    return &quot;处理促销订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p><strong>在一些业务场景中某些类型会多种多样，比如订单细分的话，就可能达到十几二十种，所以用上面这种方式显然是不可取的<br> 那么我们怎样简化 if 或 if … else 等类似的判断呢？<br>这就是业务处理器发挥的场景了</strong></p>
-<ol>
-<li><p>根据不同的订单类型处理时（GroupHandler/NormalHandler/PromotionHandler），在向容器内注册时指定不同的BeanName（此处是为了保证指定的BeanName和orderTypeEnum中的枚举一致，来方便根据枚举名称获取容器内对应的Bean）:</p>
-<h4 id="创建抽象处理器"><a href="#创建抽象处理器" class="headerlink" title="创建抽象处理器"></a>创建抽象处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public abstract class AbstractHandler &#123;</span><br><span class="line">    abstract public String handle(OrderForm orderForm);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建团购订单处理器"><a href="#创建团购订单处理器" class="headerlink" title="创建团购订单处理器"></a>创建团购订单处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;GROUP_ORDER&quot;)</span><br><span class="line">public class GroupHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理团购订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建普通订单处理器"><a href="#创建普通订单处理器" class="headerlink" title="创建普通订单处理器"></a>创建普通订单处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;NORMAL_ORDER&quot;)</span><br><span class="line">public class NormalHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理普通订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建促销订单处理器"><a href="#创建促销订单处理器" class="headerlink" title="创建促销订单处理器"></a>创建促销订单处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;PROMOTION_ORDER&quot;)</span><br><span class="line">public class PromotionHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理促销订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建订单类型枚举 </p>
-<h4 id="创建枚举"><a href="#创建枚举" class="headerlink" title="创建枚举"></a>创建枚举</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public enum OrderTypeEnum &#123;</span><br><span class="line"></span><br><span class="line">    NORMAL_ORDER(1,&quot;普通订单&quot;),</span><br><span class="line">    GROUP_ORDER(2,&quot;团购订单&quot;),</span><br><span class="line">    PROMOTION_ORDER(3,&quot;促销订单&quot;),</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    private Integer code;</span><br><span class="line">    private String desc;</span><br><span class="line"></span><br><span class="line">    public static OrderTypeEnum getOrderTypeEnumByCode(Integer code)&#123;</span><br><span class="line">        for (OrderTypeEnum en : OrderTypeEnum.values())&#123;</span><br><span class="line">            if (en.getCode().equals(code))&#123;</span><br><span class="line">                return en;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>获取应用上下文</p>
-<h4 id="应用上下文"><a href="#应用上下文" class="headerlink" title="应用上下文"></a>应用上下文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class SpringApplicationContext implements ApplicationContextAware &#123;</span><br><span class="line">    private static ApplicationContext applicationContext;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setApplicationContext(ApplicationContext context) throws BeansException &#123;</span><br><span class="line">        if (applicationContext &#x3D;&#x3D; null) &#123;</span><br><span class="line">            this.applicationContext &#x3D; context;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; classType) &#123;</span><br><span class="line">        return applicationContext.getBean(name, classType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>通过应用上下文获取对应订单的处理器：SpringApplicationContext.getBean()</p>
-<h4 id="获取处理器"><a href="#获取处理器" class="headerlink" title="获取处理器"></a>获取处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class HandlerContext &#123;</span><br><span class="line">	private Map&lt;String, Class&gt; handlerMap;</span><br><span class="line"></span><br><span class="line">	public AbstractHandler getInstance(Integer type) &#123;</span><br><span class="line">		AbstractHandler handler &#x3D; SpringApplicationContext.getBean(OrderTypeEnum.getOrderTypeEnumByCode(type).name(), AbstractHandler.class);</span><br><span class="line">		return handler;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>拿到处理器后，直接调用</p>
-<h4 id="打完收功"><a href="#打完收功" class="headerlink" title="打完收功"></a>打完收功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl implements OrderService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private HandlerContext handlerContext;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String strategyHandler4Order(OrderForm orderForm)&#123;</span><br><span class="line">        AbstractHandler instance &#x3D; handlerContext.getInstance(orderForm.getType());</span><br><span class="line">        return instance.handle(orderForm);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          Daaa~Ming
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/14/业务处理器-策略模式/" title="业务处理器 - 策略模式" target="_blank">https://mr-daming.github.io/2020/07/14/业务处理器-策略模式/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2020/07/15/coding%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          coding 踩坑记 - 持续更新
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">接口的幂等性</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码"><span class="toc-number">1.</span> <span class="toc-text">在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建抽象处理器"><span class="toc-number">2.</span> <span class="toc-text">创建抽象处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建团购订单处理器"><span class="toc-number">3.</span> <span class="toc-text">创建团购订单处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建普通订单处理器"><span class="toc-number">4.</span> <span class="toc-text">创建普通订单处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建促销订单处理器"><span class="toc-number">5.</span> <span class="toc-text">创建促销订单处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建枚举"><span class="toc-number">6.</span> <span class="toc-text">创建枚举</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用上下文"><span class="toc-number">7.</span> <span class="toc-text">应用上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取处理器"><span class="toc-number">8.</span> <span class="toc-text">获取处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打完收功"><span class="toc-number">9.</span> <span class="toc-text">打完收功</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -428,9 +286,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>业务处理器 - 策略模式 | daaa~ming</title>
+  <title>Mysql的json文档整理 | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="我们总是以为能够自由，回过头那世界却依旧。">
+  <meta name="description" content="花树下酣睡一觉，以为度过了一生，醒来后拍拍衣袍，起身即走。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="业务处理器 - 策略模式">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:title" content="Mysql的json文档整理">
+<meta property="og:url" content="https://mr-daming.github.io/2020/07/17/Mysql%E7%9A%84json%E6%96%87%E6%A1%A3/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="我们总是以为能够自由，回过头那世界却依旧。">
+<meta property="og:description" content="花树下酣睡一觉，以为度过了一生，醒来后拍拍衣袍，起身即走。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-14T10:12:10.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:52:29.700Z">
+<meta property="article:published_time" content="2020-07-17T13:36:17.000Z">
+<meta property="article:modified_time" content="2020-07-17T14:23:09.799Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -191,14 +190,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-业务处理器-策略模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Mysql的json文档" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      业务处理器 - 策略模式
+      Mysql的json文档整理
     </h1>
   
 
@@ -210,8 +209,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/14/%E4%B8%9A%E5%8A%A1%E5%A4%84%E7%90%86%E5%99%A8-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2020-07-14T10:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
+<a href="/2020/07/17/Mysql%E7%9A%84json%E6%96%87%E6%A1%A3/" class="archive-article-date">
+        <time datetime="2020-07-17T13:36:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
 </a>
 
   
@@ -224,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">629字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -233,7 +232,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -245,30 +244,192 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>我们总是以为能够自由，回过头那世界却依旧。</p>
+<p>花树下酣睡一觉，以为度过了一生，醒来后拍拍衣袍，起身即走。</p>
 </blockquote>
 <a id="more"></a>
 
-<h4 id="在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码"><a href="#在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码" class="headerlink" title="在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:"></a>在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if（1.equals(orderForm.getType()) &#123;</span><br><span class="line">    return &quot;处理普通订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">if(2.equals(orderForm.getType())) &#123;</span><br><span class="line">    return &quot;处理团购订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">if(3.equals(orderForm.getType())) &#123;</span><br><span class="line">    return &quot;处理促销订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>在mysql8.0版本后，支持了json数据的存储，并支持局部更新。我们最近的一次项目使用到了mysql的json文档，所以也就顺手整理了一下相关文档。</p>
+<h3 id="路径语法："><a href="#路径语法：" class="headerlink" title="路径语法："></a>路径语法：</h3><ul>
+<li><code>.keyName</code>：JSON对象中键名为keyName的值；</li>
+<li>对于不合法的键名（如有空格），在路径引用中必须用双引号”将键名括起来，例，.”<code>key name</code>“；</li>
+<li><code>[index]</code>：JSON数组中索引为index的值，JSON数组的索引同样从0开始；</li>
+<li><code>[index1 to index2]</code>：JSON数组中从index1到index2的值的集合；</li>
+<li><code>.*</code>: JSON对象中的所有value；</li>
+<li><code>[*]</code>: JSON数组中的所有值；</li>
+<li><code>prefix**suffix</code>: 以prefix开头并以suffix结尾的路径；</li>
+<li><code>**.keyName</code>为多个路径，如对于JSON对象’{“a”: {“b”: 1}, “c”: {“b”: 2}}’,’$**.b’指路径$.a.b和$.c.b；</li>
+<li>不存在的路径返回结果为NULL；</li>
+<li>前导<code>$</code>字符表示当前正在使用的JSON文档</li>
+</ul>
+<blockquote>
+<p>例：<br>    对于数组 [3, {“a”: [5, 6], “b”: 10}, [99, 100]]<br>    <code>$[1]</code> 即为 {“a”: [5, 6], “b”: 10}<br>    <code>$[1].a</code> 即为 [5, 6]<br>    <code>$[1].a[1]</code> 即为 6<br>    <code>$[1].b</code> 即为 10<br>    <code>$[2][0]</code> 即为 99  </p>
+</blockquote>
+<h3 id="常用函数查阅"><a href="#常用函数查阅" class="headerlink" title="常用函数查阅"></a>常用函数查阅</h3><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>函数</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>属性</td>
+<td>json_type</td>
+<td>查看json数据类型</td>
+</tr>
+<tr>
+<td></td>
+<td>json_depth</td>
+<td>json文档的最大深度</td>
+</tr>
+<tr>
+<td></td>
+<td>json_length</td>
+<td>json文档的最大长度</td>
+</tr>
+<tr>
+<td></td>
+<td>json_vaild</td>
+<td>判断是否为合法文档</td>
+</tr>
+<tr>
+<td>创建</td>
+<td>json_array</td>
+<td>创建json数组，[]</td>
+</tr>
+<tr>
+<td></td>
+<td>json_object</td>
+<td>创建json对象，{}</td>
+</tr>
+<tr>
+<td></td>
+<td>json_quote</td>
+<td>将json文档转换成json字符串</td>
+</tr>
+<tr>
+<td></td>
+<td>json_merge_preserve</td>
+<td>合并json数据</td>
+</tr>
+<tr>
+<td></td>
+<td>json_merge_path</td>
+<td>合并json数据</td>
+</tr>
+<tr>
+<td>查询</td>
+<td>json_contains</td>
+<td>判断是否包含某个json值</td>
+</tr>
+<tr>
+<td></td>
+<td>json_contains_path</td>
+<td>返回0或者1，表示JSON文本的指定的某个路径或者某些路径下是否包含特定值</td>
+</tr>
+<tr>
+<td></td>
+<td>json_overlaps</td>
+<td>比较两个json文档，如果具存在任意的共同元素或键值对，就返回1，否则返回0（类似交集的意思）</td>
+</tr>
+<tr>
+<td></td>
+<td>json_extract</td>
+<td>提取json值</td>
+</tr>
+<tr>
+<td></td>
+<td>column-&gt;path</td>
+<td>json_extract的简洁写法</td>
+</tr>
+<tr>
+<td></td>
+<td>column-&gt;&gt;path</td>
+<td>json_unquote(column-&gt;path)的简洁写法</td>
+</tr>
+<tr>
+<td></td>
+<td>json_keys</td>
+<td>提取json中的键值为json数组，如果指定路径为数组或不存在则返回null</td>
+</tr>
+<tr>
+<td></td>
+<td>json_search</td>
+<td>按给定字符串关键字搜索json，返回匹配的路径</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>json_array_append</td>
+<td>末尾添加数组元素，如果原值是数值或json对象，则转成数组后再添加元素</td>
+</tr>
+<tr>
+<td></td>
+<td>json_array_insert</td>
+<td>插入数组元素</td>
+</tr>
+<tr>
+<td></td>
+<td>json_insert</td>
+<td>插入新值（不替换已存在的旧值）</td>
+</tr>
+<tr>
+<td></td>
+<td>json_remove</td>
+<td>删除json数据</td>
+</tr>
+<tr>
+<td></td>
+<td>json_replace</td>
+<td>替换已存在的旧值</td>
+</tr>
+<tr>
+<td></td>
+<td>json_set</td>
+<td>设置值（替换旧值，旧值不存在时则新增）</td>
+</tr>
+</tbody></table>
+<p>这些大都是平常可能会使用到的，想要更详细的了解相关函数及其他知识点，推荐<a href="https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html" target="_blank" rel="noopener">Mysql官网文档</a></p>
+<h3 id="常用及功能易混的函数介绍"><a href="#常用及功能易混的函数介绍" class="headerlink" title="常用及功能易混的函数介绍"></a>常用及功能易混的函数介绍</h3><ul>
+<li><p><code>json_type()</code>     查看类型</p>
+<blockquote>
+<p>查看json类型，如果有值，则返回该值的json类型，否则会有如下报错<br>报错信息：1582 - Incorrect parameter count in the call to native function ‘json_type’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例：select json_type(&#39;&#123;&quot;a&quot;:&quot;b&quot;,&quot;c&quot;:5&#125;&#39;);  </span><br><span class="line">   返回OBJECT对象类型，（对应的还有ARRAY数组类型）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>json_array()</code>        查看数组</p>
+<blockquote>
+<p>查看json数组  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例：select json_array(&#39;a&#39;,22,false);</span><br><span class="line">    返回 [&quot;a&quot;, 22, false]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>json_object()</code>        查看对象</p>
+<blockquote>
+<p>查看json对象，形式是以’,’分割的key-value格式，如果有重复的键（key)，则后面的会覆盖前面的数据<br>注意：如果参数不能组成key-value形式的键值对，则会有如下报错<br>报错信息：1582 - Incorrect parameter count in the call to native function ‘json_object’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例：select json_object(&#39;key&#39;,&#39;value&#39;,&#39;c&#39;,1,&#39;d&#39;,false);</span><br><span class="line">    返回 &#123;&quot;key&quot;: &quot;value&quot;, &quot;c&quot;: 1, &quot;d&quot;: false&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>json_merge_preserve()</code>        合并操作</p>
+<blockquote>
+<p>合并两个及两个以上的json文档数据<br>注意：仅有一个json数据时（select json_merge_preserve(‘[“a”,”b”]’);）会有如下报错<br>报错信息：1582 - Incorrect parameter count in the call to native function ‘json_merge_preserve’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;合并数组时（只要传入参数有数组，返回结果即按数组格式合并），按传入顺序拼接</span><br><span class="line">例1：select json_merge_preserve(&#39;[&quot;a&quot;,&quot;b&quot;]&#39;, &#39;&#123;&quot;key&quot;:&quot;value&quot;,&quot;knight&quot;:false&#125;&#39;);</span><br><span class="line">    返回 [&quot;a&quot;, &quot;b&quot;, &#123;&quot;key&quot;: &quot;value&quot;, &quot;knight&quot;: false&#125;]</span><br><span class="line">例2：select json_merge_preserve(&#39;[&quot;a&quot;,&quot;b&quot;]&#39;,&#39;[&quot;1&quot;,2,&quot;a&quot;]&#39;);</span><br><span class="line">    返回 [&quot;a&quot;, &quot;b&quot;, &quot;1&quot;, 2, &quot;a&quot;]</span><br><span class="line">&#x2F;&#x2F;合并成对象时，相同key的value按顺序拼接</span><br><span class="line">例3：select json_merge_preserve(&#39;&#123;&quot;a&quot;: 3, &quot;b&quot;: 2&#125;&#39;, &#39;&#123;&quot;c&quot;: 3, &quot;a&quot;: 4&#125;&#39;, &#39;&#123;&quot;c&quot;: 5, &quot;d&quot;: 3&#125;&#39;);</span><br><span class="line">    返回 &#123;&quot;a&quot;: [3, 4], &quot;b&quot;: 2, &quot;c&quot;: [3, 5], &quot;d&quot;: 3&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>json_merge_patch()</code>       合并操作</p>
+<blockquote>
+<p>合并两个及两个以上的json文档数据<br>注意：仅有一个json数据时（select json_merge_patch(‘[1,2]’);）会有如下报错<br>报错信息：1582 - Incorrect parameter count in the call to native function ‘json_merge_patch’</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;合并数组时（只要传入参数包含有数组），只保留最后传入的json数据（可能是数组格式，也可能是对象格式）</span><br><span class="line">例1：select json_merge_patch(&#39;[1,2]&#39;,&#39;[&quot;a&quot;,&quot;b&quot;]&#39;);</span><br><span class="line">    返回 [&quot;a&quot;, &quot;b&quot;]</span><br><span class="line">例2：select json_merge_patch(&#39;[&quot;a&quot;,2,&quot;b&quot;,3]&#39;,&#39;&#123;&quot;a&quot;:12,&quot;c&quot;:13&#125;&#39;);</span><br><span class="line">    返回 &#123;&quot;a&quot;: 12, &quot;c&quot;: 13&#125;</span><br><span class="line">&#x2F;&#x2F;合并对象时，相同key存在时，后面key的value值会覆盖前面的value值，如下例中的&#39;a&#39;</span><br><span class="line">例3：select json_merge_patch(&#39;&#123;&quot;a&quot;:2,&quot;b&quot;:3&#125;&#39;,&#39;&#123;&quot;a&quot;:12,&quot;c&quot;:13&#125;&#39;);</span><br><span class="line">    返回 &#123;&quot;a&quot;: 12, &quot;b&quot;: 3, &quot;c&quot;: 13&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>在一些业务场景中某些类型会多种多样，比如订单细分的话，就可能达到十几二十种，所以用上面这种方式显然是不可取的<br> 那么我们怎样简化 if 或 if … else 等类似的判断呢？<br>这就是业务处理器发挥的场景了</strong></p>
-<ol>
-<li><p>根据不同的订单类型处理时（GroupHandler/NormalHandler/PromotionHandler），在向容器内注册时指定不同的BeanName（此处是为了保证指定的BeanName和orderTypeEnum中的枚举一致，来方便根据枚举名称获取容器内对应的Bean）:</p>
-<h4 id="创建抽象处理器"><a href="#创建抽象处理器" class="headerlink" title="创建抽象处理器"></a>创建抽象处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public abstract class AbstractHandler &#123;</span><br><span class="line">    abstract public String handle(OrderForm orderForm);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建团购订单处理器"><a href="#创建团购订单处理器" class="headerlink" title="创建团购订单处理器"></a>创建团购订单处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;GROUP_ORDER&quot;)</span><br><span class="line">public class GroupHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理团购订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建普通订单处理器"><a href="#创建普通订单处理器" class="headerlink" title="创建普通订单处理器"></a>创建普通订单处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;NORMAL_ORDER&quot;)</span><br><span class="line">public class NormalHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理普通订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建促销订单处理器"><a href="#创建促销订单处理器" class="headerlink" title="创建促销订单处理器"></a>创建促销订单处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;PROMOTION_ORDER&quot;)</span><br><span class="line">public class PromotionHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理促销订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>创建订单类型枚举 </p>
-<h4 id="创建枚举"><a href="#创建枚举" class="headerlink" title="创建枚举"></a>创建枚举</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public enum OrderTypeEnum &#123;</span><br><span class="line"></span><br><span class="line">    NORMAL_ORDER(1,&quot;普通订单&quot;),</span><br><span class="line">    GROUP_ORDER(2,&quot;团购订单&quot;),</span><br><span class="line">    PROMOTION_ORDER(3,&quot;促销订单&quot;),</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    private Integer code;</span><br><span class="line">    private String desc;</span><br><span class="line"></span><br><span class="line">    public static OrderTypeEnum getOrderTypeEnumByCode(Integer code)&#123;</span><br><span class="line">        for (OrderTypeEnum en : OrderTypeEnum.values())&#123;</span><br><span class="line">            if (en.getCode().equals(code))&#123;</span><br><span class="line">                return en;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>获取应用上下文</p>
-<h4 id="应用上下文"><a href="#应用上下文" class="headerlink" title="应用上下文"></a>应用上下文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class SpringApplicationContext implements ApplicationContextAware &#123;</span><br><span class="line">    private static ApplicationContext applicationContext;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setApplicationContext(ApplicationContext context) throws BeansException &#123;</span><br><span class="line">        if (applicationContext &#x3D;&#x3D; null) &#123;</span><br><span class="line">            this.applicationContext &#x3D; context;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; classType) &#123;</span><br><span class="line">        return applicationContext.getBean(name, classType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>通过应用上下文获取对应订单的处理器：SpringApplicationContext.getBean()</p>
-<h4 id="获取处理器"><a href="#获取处理器" class="headerlink" title="获取处理器"></a>获取处理器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class HandlerContext &#123;</span><br><span class="line">	private Map&lt;String, Class&gt; handlerMap;</span><br><span class="line"></span><br><span class="line">	public AbstractHandler getInstance(Integer type) &#123;</span><br><span class="line">		AbstractHandler handler &#x3D; SpringApplicationContext.getBean(OrderTypeEnum.getOrderTypeEnumByCode(type).name(), AbstractHandler.class);</span><br><span class="line">		return handler;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>拿到处理器后，直接调用</p>
-<h4 id="打完收功"><a href="#打完收功" class="headerlink" title="打完收功"></a>打完收功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl implements OrderService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private HandlerContext handlerContext;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String strategyHandler4Order(OrderForm orderForm)&#123;</span><br><span class="line">        AbstractHandler instance &#x3D; handlerContext.getInstance(orderForm.getType());</span><br><span class="line">        return instance.handle(orderForm);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</ul>
+<h3 id="sql语句示例"><a href="#sql语句示例" class="headerlink" title="sql语句示例"></a>sql语句示例</h3><ul>
+<li><p>新增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into t_json_table values(json_array(&#39;a&#39;));&#x2F;&#x2F;数组</span><br><span class="line">insert into t_json_table values(json_object(&#39;key&#39;,&#39;value&#39;));&#x2F;&#x2F;对象</span><br><span class="line">insert into t_json_table (name,age) values(&#39;&#123;&quot;key&quot;:&quot;value&quot;&#125;&#39;);&#x2F;&#x2F;对象</span><br><span class="line">insert into t_json_table values(json_merge_preserve(json_array(&#39;a&#39;,&#39;b&#39;),json_object(&#39;key&#39;,&#39;value&#39;)));&#x2F;&#x2F;两个及两个以上的json形式数据</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+<li><p>查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查询json数组中包含某值的数据</span><br><span class="line">select * from t_special_template where JSON_CONTAINS(order_type-&gt;&#39;$[*]&#39;,&#39;2&#39;,&#39;$&#39;);&#x2F;&#x2F;order_type字段中包含&#39;2&#39;的数据</span><br><span class="line">&#x2F;&#x2F;查询json数组（对象类型的数组）中，对象id&#x3D; 142的数据</span><br><span class="line">select * from t_class where JSON_CONTAINS(student,JSON_OBJECT(&#39;id&#39;, &quot;142&quot;))</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查询json对象</span><br><span class="line">select * from t_special_template where sub_order_info-&gt;&#39;$.id&#39; &#x3D; 142;</span><br><span class="line">select student-&gt;&#39;$.id&#39; id,student-&gt;&#39;$.name&#39; name from t_class where student-&gt;&#39;$.id&#39; &#x3D; 142;&#x2F;&#x2F;同上</span><br><span class="line">select json_extract(student,&quot;$.id&quot;) id, json_extract(student,&quot;$.name&quot;) name from t_class where student-&gt;&#39;$.id&#39; &#x3D; 142;&#x2F;&#x2F;同上</span><br></pre></td></tr></table></figure></li>
+</ul>
 
     
 
@@ -283,7 +444,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/14/业务处理器-策略模式/" title="业务处理器 - 策略模式" target="_blank">https://mr-daming.github.io/2020/07/14/业务处理器-策略模式/</a>
+          <a href="https://mr-daming.github.io/2020/07/17/Mysql的json文档/" title="Mysql的json文档整理" target="_blank">https://mr-daming.github.io/2020/07/17/Mysql的json文档/</a>
         </li>
         
         <li>
@@ -305,11 +466,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -328,18 +485,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/15/coding%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          coding 踩坑记 - 持续更新
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">接口的幂等性</div>
+    <a href="/2020/07/15/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">统一异常处理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,7 +514,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码"><span class="toc-number">1.</span> <span class="toc-text">在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建抽象处理器"><span class="toc-number">2.</span> <span class="toc-text">创建抽象处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建团购订单处理器"><span class="toc-number">3.</span> <span class="toc-text">创建团购订单处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建普通订单处理器"><span class="toc-number">4.</span> <span class="toc-text">创建普通订单处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建促销订单处理器"><span class="toc-number">5.</span> <span class="toc-text">创建促销订单处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建枚举"><span class="toc-number">6.</span> <span class="toc-text">创建枚举</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用上下文"><span class="toc-number">7.</span> <span class="toc-text">应用上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取处理器"><span class="toc-number">8.</span> <span class="toc-text">获取处理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打完收功"><span class="toc-number">9.</span> <span class="toc-text">打完收功</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#路径语法："><span class="toc-number">1.</span> <span class="toc-text">路径语法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数查阅"><span class="toc-number">2.</span> <span class="toc-text">常用函数查阅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用及功能易混的函数介绍"><span class="toc-number">3.</span> <span class="toc-text">常用及功能易混的函数介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql语句示例"><span class="toc-number">4.</span> <span class="toc-text">sql语句示例</span></a></li></ol>
                     </div>
                 </span>
             </div>
