@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>GitHub搭建Hexo博客 | daaa~ming</title>
+  <title>行为型模式 - 策略模式 | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
+  <meta name="description" content="我们总是以为能够自由，回过头那世界却依旧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub搭建Hexo博客">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="行为型模式 - 策略模式">
+<meta property="og:url" content="https://mr-daming.github.io/2020/07/14/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
+<meta property="og:description" content="我们总是以为能够自由，回过头那世界却依旧。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-10T01:41:58.000Z">
-<meta property="article:modified_time" content="2020-07-15T07:11:21.566Z">
+<meta property="article:published_time" content="2020-07-14T10:12:10.000Z">
+<meta property="article:modified_time" content="2020-07-24T06:33:37.922Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,14 +191,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-github搭建hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-行为型模式-策略模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      GitHub搭建Hexo博客
+      行为型模式 - 策略模式
     </h1>
   
 
@@ -209,8 +210,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2020-07-10T01:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+<a href="/2020/07/14/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-07-14T10:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
 </a>
 
   
@@ -223,7 +224,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">785字</span>
+      <span class="post-count">964字</span>
     </span>
   </span>
 
@@ -232,7 +233,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -244,90 +245,57 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>不要祝我一帆风顺，祝我乘风破浪吧;<br>时光会证明，乘风破浪才能一往无前。</p>
+<p>我们总是以为能够自由，回过头那世界却依旧。</p>
 </blockquote>
 <a id="more"></a>
 
-
-<ol>
-<li><p>本地安装node.js，并且其配置环境</p>
-</li>
-<li><p>安装Git和配置好Git环境</p>
-</li>
-<li><p>注册GitHub，并建立一个项目，项目名称：账户名.github.io，并勾选 Initialize this repository with a README 选项（创建完成后，进入该新建的项目，找到settings按钮，点击进入并拉到最下面，会看到GitHub Pages网址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your site is published at https:&#x2F;&#x2F;账户名.github.io&#x2F;</span><br></pre></td></tr></table></figure>
-<p>该网址就是github生成的，可以直接访问）</p>
-</li>
-<li><p>安装Hexo  </p>
-<ol>
-<li><p>本地创建好安装地址的文件夹，进入文件夹使用 <em>Git Bash Here</em> 打开命令行，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br></pre></td></tr></table></figure>
-<p>开始安装Hexo，</p>
-</li>
-<li><p>成功后，检查是否安装成功，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<p>显示版本号即为成功</p>
-</li>
-<li><p>初始化该文件夹（这一步会很慢，耐心等待），看到最后的”Start blogging with Hexo！”即表示成功。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装所需组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
-<li><p>生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
-<li><p>启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>看到如下地址（<em><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></em>）即表示启动成功，输入改地址即可打开本地样式的博客页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO Start processing</span><br><span class="line">INFO Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>如果端口被占用，页面是无法打开的，这时候遇到问题不要慌，先把手机拿。。。哦，先 Ctrl + C 停止服务，然后输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 端口号</span><br></pre></td></tr></table></figure>
-即可改变端口</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>绑定GitHub page和 Hexo  </p>
-<ol>
-<li><p>检查是否已经生成过ssh key，git bash中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br></pre></td></tr></table></figure></li>
-<li><p>如果能进入到.ssh文件目录下，则表示之前已经生成过.ssh秘钥，然后就可以直接使用，否则执行以下命令生成秘钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name ‘xxxxx’ </span><br><span class="line">git config –global user.email ‘xxx@xx.xxx’</span><br></pre></td></tr></table></figure>
-<p>生成秘钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C ‘上面的邮箱’</span><br></pre></td></tr></table></figure>
+<h3 id="什么是策略模式？"><a href="#什么是策略模式？" class="headerlink" title="什么是策略模式？"></a>什么是策略模式？</h3><p>定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。  </p>
 <blockquote>
-<p>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>然后按3个回车，即可在.ssh目录下(C盘用户文件夹下)生成两个文件：id_rsa（私有秘钥）和id_rsa.pub（公有密钥）</p>
+<p>举个简单的例子：<br>你女票周末想去北京玩（假如你又女票的话。。。），然后你就规划了以下几种出行方式:</p>
+<ol>
+<li>火车，价格低</li>
+<li>自驾，方便</li>
+<li>飞机，快、贵。。。</li>
+</ol>
+<p>然后你女票说做飞机吧，飞机贵点。。。</p>
+<p>总结一下就是：有个出去玩的想法（你规划出行的前提条件），一个能拿主意的人(统一的接口)，多种出行方式（实现这个接口的多种算法），</p>
 </blockquote>
-</li>
-<li><p>添加密钥到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>添加生成的SSH key到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure></li>
-<li><p>登录github，点击头像下的settings - SSH and GPG keys - New SSH key(新建ssh key)，然后将id_rsa.pub文件里的内容复制进去</p>
-</li>
-<li><p>测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>到这里就表示已经搭建成功了，可以访问<code>https://账户名.github.io/</code>来进入你的博客了  </p>
-</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>hexo文件结构：</p>
-<blockquote>
-<ul>
-<li>node_modules：是依赖包</li>
-<li>public：存放生成的页面</li>
-<li>scaffolds：命令生成的文章等的模板</li>
-<li>source：命令创建的各种文章</li>
-<li>themes：主题</li>
-<li>_config.yml：整个博客的配置</li>
-<li>package.json：项目所需模块项目的配置信息</li>
-<li>db.json：source解析到的，会存放文件目录等一些信息  </li>
+<h4 id="策略模式的结构？"><a href="#策略模式的结构？" class="headerlink" title="策略模式的结构？"></a>策略模式的结构？</h4><ul>
+<li>环境：操作策略的<strong>应用上下文</strong></li>
+<li>策略的抽象：对某个业务的需求进行整理抽象，即通过实现的<strong>统一接口</strong>去处理各种场景下的问题</li>
+<li>具体策略：对某个业务下的不同场景，实现<strong>不同的策略（算法）</strong></li>
 </ul>
-</blockquote>
-</blockquote>
-<p>下一篇会整理一下<a href="https://mr-daming.github.io/2020/07/10/hexo常用命令及yilia主题基本配置说明/">Hexo常用命令以及yilia主题的基本配置</a></p>
+<h4 id="主要解决的问题："><a href="#主要解决的问题：" class="headerlink" title="主要解决的问题："></a>主要解决的问题：</h4><p>在有多种算法相似的情况下，使用 if…else 所带来的复杂和难以维护。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>算法可以自由切换。 </li>
+<li>避免使用多重条件判断。 </li>
+<li>扩展性良好。</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li>策略类会增多。 </li>
+<li>所有策略类都需要对外暴露。</li>
+</ol>
+<h3 id="订单场景下的示例："><a href="#订单场景下的示例：" class="headerlink" title="订单场景下的示例："></a>订单场景下的示例：</h3><h4 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h4><p>在我们常见的订单逻辑处理中，需要根据订单类型来做不同的处理，这时就可能出现如下代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if（1.equals(orderForm.getType()) &#123;</span><br><span class="line">    return &quot;处理普通订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">if(2.equals(orderForm.getType())) &#123;</span><br><span class="line">    return &quot;处理团购订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">if(3.equals(orderForm.getType())) &#123;</span><br><span class="line">    return &quot;处理促销订单&quot;;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><strong>在一些业务场景中某些类型会多种多样，比如订单细分的话，就可能达到十几二十种，所以用上面这种方式显然是不可取的<br> 那么我们怎样简化 if 或 if … else 等类似的判断呢？<br>这就是业务处理器发挥的场景了</strong></p>
+<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h4><ol>
+<li><p>根据不同的订单类型处理时（GroupHandler/NormalHandler/PromotionHandler），在向容器内注册时指定不同的BeanName（此处是为了保证指定的BeanName和orderTypeEnum中的枚举一致，来方便根据枚举名称获取容器内对应的Bean）:</p>
+<h5 id="创建抽象处理器"><a href="#创建抽象处理器" class="headerlink" title="创建抽象处理器"></a>创建抽象处理器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public abstract class AbstractHandler &#123;</span><br><span class="line">    abstract public String handle(OrderForm orderForm);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="创建团购订单处理器"><a href="#创建团购订单处理器" class="headerlink" title="创建团购订单处理器"></a>创建团购订单处理器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;GROUP_ORDER&quot;)</span><br><span class="line">public class GroupHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理团购订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="创建普通订单处理器"><a href="#创建普通订单处理器" class="headerlink" title="创建普通订单处理器"></a>创建普通订单处理器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;NORMAL_ORDER&quot;)</span><br><span class="line">public class NormalHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理普通订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="创建促销订单处理器"><a href="#创建促销订单处理器" class="headerlink" title="创建促销订单处理器"></a>创建促销订单处理器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component(&quot;PROMOTION_ORDER&quot;)</span><br><span class="line">public class PromotionHandler extends AbstractHandler &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String handle(OrderForm orderForm) &#123;</span><br><span class="line">        return &quot;处理促销订单&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建订单类型枚举 </p>
+<h5 id="创建枚举"><a href="#创建枚举" class="headerlink" title="创建枚举"></a>创建枚举</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public enum OrderTypeEnum &#123;</span><br><span class="line"></span><br><span class="line">    NORMAL_ORDER(1,&quot;普通订单&quot;),</span><br><span class="line">    GROUP_ORDER(2,&quot;团购订单&quot;),</span><br><span class="line">    PROMOTION_ORDER(3,&quot;促销订单&quot;),</span><br><span class="line">    ;</span><br><span class="line"></span><br><span class="line">    private Integer code;</span><br><span class="line">    private String desc;</span><br><span class="line"></span><br><span class="line">    public static OrderTypeEnum getOrderTypeEnumByCode(Integer code)&#123;</span><br><span class="line">        for (OrderTypeEnum en : OrderTypeEnum.values())&#123;</span><br><span class="line">            if (en.getCode().equals(code))&#123;</span><br><span class="line">                return en;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>获取应用上下文</p>
+<h5 id="应用上下文"><a href="#应用上下文" class="headerlink" title="应用上下文"></a>应用上下文</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class SpringApplicationContext implements ApplicationContextAware &#123;</span><br><span class="line">    private static ApplicationContext applicationContext;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setApplicationContext(ApplicationContext context) throws BeansException &#123;</span><br><span class="line">        if (applicationContext &#x3D;&#x3D; null) &#123;</span><br><span class="line">            this.applicationContext &#x3D; context;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; classType) &#123;</span><br><span class="line">        return applicationContext.getBean(name, classType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>通过应用上下文获取对应订单的处理器：SpringApplicationContext.getBean()</p>
+<h5 id="获取处理器"><a href="#获取处理器" class="headerlink" title="获取处理器"></a>获取处理器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class HandlerContext &#123;</span><br><span class="line">	private Map&lt;String, Class&gt; handlerMap;</span><br><span class="line"></span><br><span class="line">	public AbstractHandler getInstance(Integer type) &#123;</span><br><span class="line">		AbstractHandler handler &#x3D; SpringApplicationContext.getBean(OrderTypeEnum.getOrderTypeEnumByCode(type).name(), AbstractHandler.class);</span><br><span class="line">		return handler;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>拿到处理器后，直接调用</p>
+<h5 id="打完收功"><a href="#打完收功" class="headerlink" title="打完收功"></a>打完收功</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl implements OrderService &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private HandlerContext handlerContext;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String strategyHandler4Order(OrderForm orderForm)&#123;</span><br><span class="line">        AbstractHandler instance &#x3D; handlerContext.getInstance(orderForm.getType());</span><br><span class="line">        return instance.handle(orderForm);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
     
 
@@ -342,7 +310,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/10/github搭建hexo博客/" title="GitHub搭建Hexo博客" target="_blank">https://mr-daming.github.io/2020/07/10/github搭建hexo博客/</a>
+          <a href="https://mr-daming.github.io/2020/07/14/行为型模式-策略模式/" title="行为型模式 - 策略模式" target="_blank">https://mr-daming.github.io/2020/07/14/行为型模式-策略模式/</a>
         </li>
         
         <li>
@@ -364,7 +332,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -383,15 +355,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/15/coding%E8%B8%A9%E5%9D%91%E8%AE%B0-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hexo常用命令及yilia主题基本配置
+          coding 踩坑记 - 持续更新
         
       </div>
     </a>
   
+  
+    <a href="/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">接口的幂等性</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -416,7 +393,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是策略模式？"><span class="toc-number">1.</span> <span class="toc-text">什么是策略模式？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#策略模式的结构？"><span class="toc-number">1.1.</span> <span class="toc-text">策略模式的结构？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主要解决的问题："><span class="toc-number">1.2.</span> <span class="toc-text">主要解决的问题：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点："><span class="toc-number">1.3.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点："><span class="toc-number">1.4.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#订单场景下的示例："><span class="toc-number">2.</span> <span class="toc-text">订单场景下的示例：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#出现的问题"><span class="toc-number">2.1.</span> <span class="toc-text">出现的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决方案："><span class="toc-number">2.2.</span> <span class="toc-text">解决方案：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建抽象处理器"><span class="toc-number">2.2.1.</span> <span class="toc-text">创建抽象处理器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建团购订单处理器"><span class="toc-number">2.2.2.</span> <span class="toc-text">创建团购订单处理器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建普通订单处理器"><span class="toc-number">2.2.3.</span> <span class="toc-text">创建普通订单处理器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建促销订单处理器"><span class="toc-number">2.2.4.</span> <span class="toc-text">创建促销订单处理器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建枚举"><span class="toc-number">2.2.5.</span> <span class="toc-text">创建枚举</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#应用上下文"><span class="toc-number">2.2.6.</span> <span class="toc-text">应用上下文</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取处理器"><span class="toc-number">2.2.7.</span> <span class="toc-text">获取处理器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打完收功"><span class="toc-number">2.2.8.</span> <span class="toc-text">打完收功</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

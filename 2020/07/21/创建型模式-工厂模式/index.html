@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>GitHub搭建Hexo博客 | daaa~ming</title>
+  <title>创建型模式 - 工厂模式 | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="GitHub搭建Hexo博客">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="创建型模式 - 工厂模式">
+<meta property="og:url" content="https://mr-daming.github.io/2020/07/21/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-10T01:41:58.000Z">
-<meta property="article:modified_time" content="2020-07-15T07:11:21.566Z">
+<meta property="article:published_time" content="2020-07-21T06:01:28.000Z">
+<meta property="article:modified_time" content="2020-07-23T06:46:09.580Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,14 +189,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-github搭建hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-创建型模式-工厂模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      GitHub搭建Hexo博客
+      创建型模式 - 工厂模式
     </h1>
   
 
@@ -209,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2020-07-10T01:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+<a href="/2020/07/21/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-07-21T06:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
 </a>
 
   
@@ -223,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">785字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -232,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -244,90 +243,57 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>不要祝我一帆风顺，祝我乘风破浪吧;<br>时光会证明，乘风破浪才能一往无前。</p>
 </blockquote>
 <a id="more"></a>
+<h3 id="OO原则："><a href="#OO原则：" class="headerlink" title="OO原则："></a>OO原则：</h3><p>多用组合，少用继承；<br>针对借口编程，不针对实现编程；<br>为交互对象之间的松耦合设计儿努力；<br>类应该对扩展开放，对修改关闭；<br>依赖抽象，不要依赖具体的类。</p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂方法的设计原则：要依赖抽象，不要依赖具体类。<br>所有工厂模式都用来完成<strong>创建对象</strong>。</p>
+<p>下面就以工厂生产电子设备为例，简单理一下几种工厂模式：</p>
+<ol>
+<li>手机产品的抽象接口<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class XiaoMiPhone implements Phone&#123;</span><br><span class="line">	</span><br><span class="line">    @Override</span><br><span class="line">    public XiaoMiPhone getPhone() &#123;</span><br><span class="line">        return new XiaoMiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>小米手机<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class MailSender &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void Send() &#123;</span><br><span class="line">        System.out.println(&quot;this is mailSender!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>华为手机<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class HuaWeiPhone implements Phone&#123;</span><br><span class="line">	</span><br><span class="line">    @Override</span><br><span class="line">    public HuaWeiPhone getPhone() &#123;</span><br><span class="line">        return new HuaWeiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
+<h4 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h4><p>看一段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class SimpleFactory &#123;</span><br><span class="line">	</span><br><span class="line">    public Phone getPhone(String phoneType) &#123;</span><br><span class="line"></span><br><span class="line">        if (&quot;xiaomi&quot;.equals(phoneType)) &#123;</span><br><span class="line">            return new XiaoMiPhone();</span><br><span class="line">        &#125; else if (&quot;huawei&quot;.equals(phoneType)) &#123;</span><br><span class="line">            return new HuaWeiPhone();</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是感觉很熟悉，<strong>根据不同入参去创建了不同的实体</strong>。但这就是一个简单工厂，看起来更像是一种编程习惯，而不像是一个设计模式。</p>
+<h4 id="普通工厂"><a href="#普通工厂" class="headerlink" title="普通工厂"></a>普通工厂</h4><p>工厂类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class OrdinaryFactory &#123;</span><br><span class="line">	</span><br><span class="line">    public XiaoMiPhone getXiaoMiPhone() &#123;</span><br><span class="line">        return new XiaoMiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">    public HuaWeiPhone getHuaWeiPhone() &#123;</span><br><span class="line">        return new HuaWeiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	</span><br><span class="line">	OrdinaryFactory factory &#x3D; new OrdinaryFactory();</span><br><span class="line">	</span><br><span class="line">	XiaoMiPhone xiaoMi &#x3D; factory.getXiaoMiPhone();</span><br><span class="line">	HuaWeiPhone huaWei &#x3D; factory.getHuaWeiPhone();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从这段代码可以看出，相比于简单工厂，普通工厂不需要去判断参数来创建对象，直接调用即可，但是仍<strong>需要实例化工厂类</strong>。</p>
+<h4 id="静态工厂"><a href="#静态工厂" class="headerlink" title="静态工厂"></a>静态工厂</h4><p>工厂类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class StaticFactory &#123;</span><br><span class="line">	</span><br><span class="line">    public static XiaoMiPhone getXiaoMiPhone() &#123;</span><br><span class="line">        return new XiaoMiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    public static HuaWeiPhone getHuaWeiPhone() &#123;</span><br><span class="line">        return new HuaWeiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	</span><br><span class="line">	XiaoMiPhone xiaoMi &#x3D; StaticFactory.getXiaoMiPhone();</span><br><span class="line">	HuaWeiPhone huaWei &#x3D; StaticFactory.getHuaWeiPhone();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样是不是方便多了，完全不需要实例化工厂类，直接调用静态方法即可创建不同的对象</p>
+<h4 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h4><p>我们看下前面几个的缺点：<br>类的创建依赖工厂类，也就是说，如果想要拓展程序，必须对工厂类进行修改，这样违背了闭包原则。<br>如果扩展程序时（比如新增生产电脑功能），我们只需要添加一个类或一个工厂类就能实现，这样就不违背闭包原则了。<br>抽象工厂就是将工厂类抽象，通过工厂类的新增来实现程序的扩展。</p>
+<p>电脑产品的抽象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface Pc &#123;</span><br><span class="line">	</span><br><span class="line">    public Pc getPc();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>小米电脑：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class XiaoMiPc implements Pc &#123;</span><br><span class="line">	</span><br><span class="line">    @Override</span><br><span class="line">    public Pc getPc() &#123;</span><br><span class="line">        return new XiaoMiPc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>华为电脑：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class HuaWeiPc implements Pc &#123;</span><br><span class="line">	</span><br><span class="line">    @Override</span><br><span class="line">    public Pc getPc() &#123;</span><br><span class="line">        return new HuaWeiPc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生产工厂抽象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public interface AbstarctFactory &#123;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 生产手机产品</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Phone getPhoneProduct();</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 生产电脑产品</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Pc getPcProduct();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>本地安装node.js，并且其配置环境</p>
-</li>
-<li><p>安装Git和配置好Git环境</p>
-</li>
-<li><p>注册GitHub，并建立一个项目，项目名称：账户名.github.io，并勾选 Initialize this repository with a README 选项（创建完成后，进入该新建的项目，找到settings按钮，点击进入并拉到最下面，会看到GitHub Pages网址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your site is published at https:&#x2F;&#x2F;账户名.github.io&#x2F;</span><br></pre></td></tr></table></figure>
-<p>该网址就是github生成的，可以直接访问）</p>
-</li>
-<li><p>安装Hexo  </p>
-<ol>
-<li><p>本地创建好安装地址的文件夹，进入文件夹使用 <em>Git Bash Here</em> 打开命令行，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br></pre></td></tr></table></figure>
-<p>开始安装Hexo，</p>
-</li>
-<li><p>成功后，检查是否安装成功，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<p>显示版本号即为成功</p>
-</li>
-<li><p>初始化该文件夹（这一步会很慢，耐心等待），看到最后的”Start blogging with Hexo！”即表示成功。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装所需组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
-<li><p>生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
-<li><p>启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>看到如下地址（<em><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></em>）即表示启动成功，输入改地址即可打开本地样式的博客页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO Start processing</span><br><span class="line">INFO Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>小米产品的生产工厂：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class XiaoMiFactory implements AbstarctFactory&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Phone getPhoneProduct() &#123;</span><br><span class="line">        return new XiaoMiPhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Pc getPcProduct() &#123;</span><br><span class="line">        return new XiaoMiPc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>华为产品的生产工厂：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class HuaWeiFactory implements AbstarctFactory&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Phone getPhoneProduct() &#123;</span><br><span class="line">        return new HuaWeiPhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Pc getPcProduct() &#123;</span><br><span class="line">        return new HuaWeiPc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	AbstarctFactory xiaoMi &#x3D; new XiaoMiFactory();</span><br><span class="line">	Phone xiaoMiPhone &#x3D; xiaoMi.getPhoneProduct();</span><br><span class="line">	Pc xiaoMiPc &#x3D; xiaoMi.getPcProduct();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>整理一下抽象工厂的结构：</p>
 <ol>
-<li>如果端口被占用，页面是无法打开的，这时候遇到问题不要慌，先把手机拿。。。哦，先 Ctrl + C 停止服务，然后输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 端口号</span><br></pre></td></tr></table></figure>
-即可改变端口</li>
+<li>抽象工厂(AbstarctFactory)：提供了创建的接口，调用者通过它控制具体工厂来创建对象；</li>
+<li>具体工厂(XiaoMiFactory，HuaWeiFactory)：实现抽象工厂的方法，创建自己的对象；</li>
+<li>抽象产品（Phone，Pc）： 定义了产品的规范，描述了产品的主要特性和功能；</li>
+<li>具体产品（XiaoMiPc，HuaWeiPhone等）：实现了抽象产品角色所定义的接口，由具体工厂来创建；<br>可以看出，在抽象方法中，我们无需关心具体的创建细节，而是将一系列的产品放到一起创建(如手机、电脑的产品分类，以及小米、华为的品牌分类这种)，即是通过组合的方式来实现的。<br>但是它的缺点也是明显的：扩展困难，新增一个产品时，需要修改抽象和具体工厂类（比如华为品牌新增了平板产品），违背了开闭原则。</li>
 </ol>
-</li>
-</ol>
-</li>
-<li><p>绑定GitHub page和 Hexo  </p>
-<ol>
-<li><p>检查是否已经生成过ssh key，git bash中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br></pre></td></tr></table></figure></li>
-<li><p>如果能进入到.ssh文件目录下，则表示之前已经生成过.ssh秘钥，然后就可以直接使用，否则执行以下命令生成秘钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name ‘xxxxx’ </span><br><span class="line">git config –global user.email ‘xxx@xx.xxx’</span><br></pre></td></tr></table></figure>
-<p>生成秘钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C ‘上面的邮箱’</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>然后按3个回车，即可在.ssh目录下(C盘用户文件夹下)生成两个文件：id_rsa（私有秘钥）和id_rsa.pub（公有密钥）</p>
-</blockquote>
-</li>
-<li><p>添加密钥到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>添加生成的SSH key到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure></li>
-<li><p>登录github，点击头像下的settings - SSH and GPG keys - New SSH key(新建ssh key)，然后将id_rsa.pub文件里的内容复制进去</p>
-</li>
-<li><p>测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>到这里就表示已经搭建成功了，可以访问<code>https://账户名.github.io/</code>来进入你的博客了  </p>
-</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>hexo文件结构：</p>
-<blockquote>
-<ul>
-<li>node_modules：是依赖包</li>
-<li>public：存放生成的页面</li>
-<li>scaffolds：命令生成的文章等的模板</li>
-<li>source：命令创建的各种文章</li>
-<li>themes：主题</li>
-<li>_config.yml：整个博客的配置</li>
-<li>package.json：项目所需模块项目的配置信息</li>
-<li>db.json：source解析到的，会存放文件目录等一些信息  </li>
-</ul>
-</blockquote>
-</blockquote>
-<p>下一篇会整理一下<a href="https://mr-daming.github.io/2020/07/10/hexo常用命令及yilia主题基本配置说明/">Hexo常用命令以及yilia主题的基本配置</a></p>
 
     
 
@@ -342,7 +308,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/10/github搭建hexo博客/" title="GitHub搭建Hexo博客" target="_blank">https://mr-daming.github.io/2020/07/10/github搭建hexo博客/</a>
+          <a href="https://mr-daming.github.io/2020/07/21/创建型模式-工厂模式/" title="创建型模式 - 工厂模式" target="_blank">https://mr-daming.github.io/2020/07/21/创建型模式-工厂模式/</a>
         </li>
         
         <li>
@@ -364,7 +330,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -383,15 +353,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/24/jpa-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E8%BF%94%E5%9B%9E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BD%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hexo常用命令及yilia主题基本配置
+          jpa 多表查询返回自定义实体
         
       </div>
     </a>
   
+  
+    <a href="/2020/07/18/Redis-%E6%8C%81%E4%B9%85%E5%8C%96%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis 持久化方式</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -416,7 +391,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OO原则："><span class="toc-number">1.</span> <span class="toc-text">OO原则：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">2.</span> <span class="toc-text">工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单工厂"><span class="toc-number">2.1.</span> <span class="toc-text">简单工厂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#普通工厂"><span class="toc-number">2.2.</span> <span class="toc-text">普通工厂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#静态工厂"><span class="toc-number">2.3.</span> <span class="toc-text">静态工厂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#抽象工厂"><span class="toc-number">2.4.</span> <span class="toc-text">抽象工厂</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

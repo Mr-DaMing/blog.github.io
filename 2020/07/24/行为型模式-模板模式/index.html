@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>GitHub搭建Hexo博客 | daaa~ming</title>
+  <title>行为型模式 - 模板模式 | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
+  <meta name="description" content="dfgh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub搭建Hexo博客">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="行为型模式 - 模板模式">
+<meta property="og:url" content="https://mr-daming.github.io/2020/07/24/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="不要祝我一帆风顺，祝我乘风破浪吧;时光会证明，乘风破浪才能一往无前。">
+<meta property="og:description" content="dfgh">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-10T01:41:58.000Z">
-<meta property="article:modified_time" content="2020-07-15T07:11:21.566Z">
+<meta property="article:published_time" content="2020-07-24T06:32:33.000Z">
+<meta property="article:modified_time" content="2020-07-25T02:26:56.709Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,14 +191,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-github搭建hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-行为型模式-模板模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      GitHub搭建Hexo博客
+      行为型模式 - 模板模式
     </h1>
   
 
@@ -209,8 +210,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/10/github%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-        <time datetime="2020-07-10T01:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+<a href="/2020/07/24/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F-%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <time datetime="2020-07-24T06:32:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
 </a>
 
   
@@ -223,7 +224,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">785字</span>
+      <span class="post-count">1.5k字</span>
     </span>
   </span>
 
@@ -232,7 +233,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -244,90 +245,54 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>不要祝我一帆风顺，祝我乘风破浪吧;<br>时光会证明，乘风破浪才能一往无前。</p>
+<p>dfgh</p>
 </blockquote>
 <a id="more"></a>
 
+<h3 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h3><p>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。</p>
+<h4 id="实现要素："><a href="#实现要素：" class="headerlink" title="实现要素："></a>实现要素：</h4><p>准备一个抽象类，将部分逻辑以具体方法的形式实现，然后声明一些抽象方法交由子类实现剩余逻辑，<br>用钩子方法给予子类更大的灵活性。最后将方法汇总成一个不可改变的模板方法。</p>
+<h4 id="适用的业务场景"><a href="#适用的业务场景" class="headerlink" title="适用的业务场景:"></a>适用的业务场景:</h4><pre><code>1. 算法或者操作遵循相似的逻辑  
+2. 重构时把相同的代码抽取到父类中
+3. 重要、复杂的算法，核心算法设计为模板方法</code></pre><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><pre><code>1. 封装不变部分，扩展可变部分
+2. 行为由父类控制，子类去实现部分特有的逻辑，屏蔽细节
+3. 抽取了公共的代码，便于维护，复用性好</code></pre><h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><pre><code>1. 每一个不同的实现都需要一个子类来实现，导致类的个数增加，使得系统更加庞大
+2. 由于java是单继承，我们面对一个旧系统进行重构的时候，原系统就有继承，我们再想用模板方法重构再次引入继承就会比较困难</code></pre><h4 id="结构："><a href="#结构：" class="headerlink" title="结构："></a>结构：</h4><pre><code>1. 抽象父类：抽出了公用方法，并且指定了调用的先后顺序；
+2. 多种特色的子类：通用部分在父类定义，子类只负责实现自己特有的方法即可，无法影响到整体的逻辑；</code></pre><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="思路整理"><a href="#思路整理" class="headerlink" title="思路整理"></a>思路整理</h4><p>请问把大象放冰箱分几步？<br>。。。咳咳咳，太老套了？<br>重来重来。。。<br>请问泡杯茶分几步：</p>
+<ol>
+<li>将水煮沸</li>
+<li>放入茶叶</li>
+<li>倒入沸水<br>还有喝咖啡的：</li>
+<li>将水煮沸</li>
+<li>放入咖啡</li>
+<li>倒入沸水</li>
+</ol>
+<hr>
+<h4 id="可能会有的特殊情况"><a href="#可能会有的特殊情况" class="headerlink" title="可能会有的特殊情况"></a>可能会有的特殊情况</h4><p>该饮料店里进来俩大爷：<br>大爷A：我喝茶，里面还要加个柠檬片（步骤4），<br>大爷B：那我喝咖啡好了，咖啡里加糖，加牛奶（步骤4），<br>…<br>行吧，各位都是大爷，你们说了算。</p>
+<p>看出泡茶和煮咖啡的区别没?<br>步骤1和步骤3相同，只有步骤2是自己特有的操作，所以我们可以把步骤1和步骤3抽取出来公用，这样我们只需要根据不同情况（泡茶，煮咖啡）在子类中去实现不同的特有逻辑就行了,<br>但是步骤4就不确定是否需要了，所以我们留一个钩子（即一个标志）来让子类实现父类的时候，决定是否需要添加这个步骤。</p>
+<h4 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h4><h5 id="制作饮料的抽象类"><a href="#制作饮料的抽象类" class="headerlink" title="制作饮料的抽象类"></a>制作饮料的抽象类</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">public abstract class RefreshBeverage &#123;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;    咖啡的泡法             茶的泡法</span><br><span class="line">&#x2F;&#x2F;    1、将水煮沸            1、将水煮沸              - 相同</span><br><span class="line">&#x2F;&#x2F;    2、把咖啡放进杯子       2、把茶叶放进杯子</span><br><span class="line">&#x2F;&#x2F;    3、用沸水倒进杯子       3、用沸水倒进杯子        - 相同</span><br><span class="line">&#x2F;&#x2F;    4、加糖和牛奶           4、加柠檬</span><br><span class="line"></span><br><span class="line">	 &#x2F;**</span><br><span class="line">     * 是否启用钩子</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Boolean addBrv &#x3D; false;</span><br><span class="line"></span><br><span class="line">	 &#x2F;**</span><br><span class="line">     * 制做饮料</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public final void prepareBeverageTemplate()&#123;</span><br><span class="line">        &#x2F;&#x2F;1、将水煮沸</span><br><span class="line">        boilWater();</span><br><span class="line">        &#x2F;&#x2F;2、将饮料倒入杯中</span><br><span class="line">        pourInCup();</span><br><span class="line">        &#x2F;&#x2F;3、泡制饮料</span><br><span class="line">        brew();</span><br><span class="line">        if (addBrv)&#123;</span><br><span class="line">            &#x2F;&#x2F;4、加入调料</span><br><span class="line">            addCondiments();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 煮水</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void boilWater()&#123;</span><br><span class="line">        System.out.println(&quot;父类公共步骤1：将水煮沸&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 放入饮料</span><br><span class="line">     *&#x2F;</span><br><span class="line">    protected abstract void pourInCup();</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 倒入沸水</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void brew()&#123;</span><br><span class="line">        System.out.println(&quot;父类公共步骤3：倒入沸水&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 加入调料品</span><br><span class="line">     *&#x2F;</span><br><span class="line">    protected abstract void addCondiments();</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 决定是否加入调料，即是否挂钩</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    protected abstract void isCustomerWantsCondiments();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>本地安装node.js，并且其配置环境</p>
-</li>
-<li><p>安装Git和配置好Git环境</p>
-</li>
-<li><p>注册GitHub，并建立一个项目，项目名称：账户名.github.io，并勾选 Initialize this repository with a README 选项（创建完成后，进入该新建的项目，找到settings按钮，点击进入并拉到最下面，会看到GitHub Pages网址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your site is published at https:&#x2F;&#x2F;账户名.github.io&#x2F;</span><br></pre></td></tr></table></figure>
-<p>该网址就是github生成的，可以直接访问）</p>
-</li>
-<li><p>安装Hexo  </p>
-<ol>
-<li><p>本地创建好安装地址的文件夹，进入文件夹使用 <em>Git Bash Here</em> 打开命令行，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br></pre></td></tr></table></figure>
-<p>开始安装Hexo，</p>
-</li>
-<li><p>成功后，检查是否安装成功，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<p>显示版本号即为成功</p>
-</li>
-<li><p>初始化该文件夹（这一步会很慢，耐心等待），看到最后的”Start blogging with Hexo！”即表示成功。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装所需组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
-<li><p>生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
-<li><p>启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>看到如下地址（<em><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></em>）即表示启动成功，输入改地址即可打开本地样式的博客页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO Start processing</span><br><span class="line">INFO Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<h5 id="饮料的具体实现子类：-咖啡"><a href="#饮料的具体实现子类：-咖啡" class="headerlink" title="饮料的具体实现子类： 咖啡"></a>饮料的具体实现子类： 咖啡</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Coffee extends RefreshBeverage &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected void pourInCup() &#123;</span><br><span class="line">        System.out.println(&quot;咖啡实现步骤2：将咖啡放入杯中&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void addCondiments() &#123;</span><br><span class="line">        System.out.println(&quot;咖啡实现步骤4：添加糖和牛奶&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void isCustomerWantsCondiments() &#123;</span><br><span class="line">        System.out.println(&quot;准备好糖和牛奶&quot;);</span><br><span class="line">        addBrv &#x3D; true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>如果端口被占用，页面是无法打开的，这时候遇到问题不要慌，先把手机拿。。。哦，先 Ctrl + C 停止服务，然后输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 端口号</span><br></pre></td></tr></table></figure>
-即可改变端口</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>绑定GitHub page和 Hexo  </p>
-<ol>
-<li><p>检查是否已经生成过ssh key，git bash中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh</span><br></pre></td></tr></table></figure></li>
-<li><p>如果能进入到.ssh文件目录下，则表示之前已经生成过.ssh秘钥，然后就可以直接使用，否则执行以下命令生成秘钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name ‘xxxxx’ </span><br><span class="line">git config –global user.email ‘xxx@xx.xxx’</span><br></pre></td></tr></table></figure>
-<p>生成秘钥</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C ‘上面的邮箱’</span><br></pre></td></tr></table></figure>
+<h5 id="饮料的具体实现子类：-茶"><a href="#饮料的具体实现子类：-茶" class="headerlink" title="饮料的具体实现子类： 茶"></a>饮料的具体实现子类： 茶</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class RedTea extends RefreshBeverage &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected void pourInCup() &#123;</span><br><span class="line">        System.out.println(&quot;红茶实现步骤2：将茶叶放入到杯中&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void addCondiments() &#123;</span><br><span class="line">        System.out.println(&quot;红茶实现步骤4：放入柠檬片&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void isCustomerWantsCondiments() &#123;</span><br><span class="line">        System.out.println(&quot;准备好柠檬片&quot;);</span><br><span class="line">        addBrv &#x3D; true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="茶和咖啡制作好了："><a href="#茶和咖啡制作好了：" class="headerlink" title="茶和咖啡制作好了："></a>茶和咖啡制作好了：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        RefreshBeverage coffee &#x3D; new Coffee();</span><br><span class="line">        System.out.println(&quot;-- 咖啡：&quot;);</span><br><span class="line">        coffee.prepareBeverageTemplate();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;--------------------------------------------------------------------------------&quot;);</span><br><span class="line"></span><br><span class="line">        RefreshBeverage redTea &#x3D; new RedTea();</span><br><span class="line">        System.out.println(&quot;-- 茶：&quot;);</span><br><span class="line">        redTea.prepareBeverageTemplate();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
 <blockquote>
-<p>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>-f 指定密钥文件存储文件名。<br>然后按3个回车，即可在.ssh目录下(C盘用户文件夹下)生成两个文件：id_rsa（私有秘钥）和id_rsa.pub（公有密钥）</p>
+<p>– 咖啡：<br>父类公共步骤1：将水煮沸<br>咖啡实&gt; – 咖啡：现步骤2：将咖啡放入杯中<br>父类公共步骤3：倒入沸水</p>
+<hr>
+<p>– 红茶：<br>父类公共步骤1：将水煮沸<br>红茶实现步骤2：将茶叶放入到杯中<br>父类公共步骤3：倒入沸水</p>
 </blockquote>
-</li>
-<li><p>添加密钥到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>添加生成的SSH key到ssh-agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~&#x2F;.ssh&#x2F;id_rsa</span><br></pre></td></tr></table></figure></li>
-<li><p>登录github，点击头像下的settings - SSH and GPG keys - New SSH key(新建ssh key)，然后将id_rsa.pub文件里的内容复制进去</p>
-</li>
-<li><p>测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>到这里就表示已经搭建成功了，可以访问<code>https://账户名.github.io/</code>来进入你的博客了  </p>
-</li>
-</ol>
-</li>
-</ol>
+<h5 id="加入其他调味品"><a href="#加入其他调味品" class="headerlink" title="加入其他调味品"></a>加入其他调味品</h5><p>不行，我的柠檬片呢，<br>我的牛奶也没加。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        RefreshBeverage coffee &#x3D; new Coffee();</span><br><span class="line">        System.out.println(&quot;-- 加糖和牛奶的咖啡：&quot;);</span><br><span class="line">        coffee.isCustomerWantsCondiments();</span><br><span class="line">        coffee.prepareBeverageTemplate();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;--------------------------------------------------------------------------------&quot;);</span><br><span class="line"></span><br><span class="line">        RefreshBeverage redTea &#x3D; new RedTea();</span><br><span class="line">        System.out.println(&quot;-- 加柠檬片的茶：&quot;);</span><br><span class="line">        redTea.isCustomerWantsCondiments();</span><br><span class="line">        redTea.prepareBeverageTemplate();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
 <blockquote>
-<p>hexo文件结构：</p>
-<blockquote>
-<ul>
-<li>node_modules：是依赖包</li>
-<li>public：存放生成的页面</li>
-<li>scaffolds：命令生成的文章等的模板</li>
-<li>source：命令创建的各种文章</li>
-<li>themes：主题</li>
-<li>_config.yml：整个博客的配置</li>
-<li>package.json：项目所需模块项目的配置信息</li>
-<li>db.json：source解析到的，会存放文件目录等一些信息  </li>
-</ul>
+<p>– 加糖和牛奶的咖啡：<br>准备好糖和牛奶<br>父类公共步骤1：将水煮沸<br>咖啡实现步骤2：将咖啡放入杯中<br>父类公共步骤3：倒入沸水<br>咖啡实现步骤4：添加糖和牛奶</p>
+<hr>
+<p>– 加柠檬片的茶：<br>准备好柠檬片<br>父类公共步骤1：将水煮沸<br>红茶实现步骤2：将茶叶放入到杯中<br>父类公共步骤3：倒入沸水<br>红茶实现步骤4：放入柠檬片</p>
 </blockquote>
-</blockquote>
-<p>下一篇会整理一下<a href="https://mr-daming.github.io/2020/07/10/hexo常用命令及yilia主题基本配置说明/">Hexo常用命令以及yilia主题的基本配置</a></p>
+<p>“两位大爷你们饮料做好了，看两位衣冠端正、相貌堂堂、眉清目秀、玉树临风、英俊潇洒、人见人爱、花见花开…此处省略8万字，所以给你们打骨折，只收八十八万八千八百八十八块八毛八分八里就好了。”</p>
+<p>”哎，你小子别拉我，大爷看你有血光之灾啊，让大爷躺地上帮你用钱消灾吧“</p>
 
     
 
@@ -342,7 +307,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/10/github搭建hexo博客/" title="GitHub搭建Hexo博客" target="_blank">https://mr-daming.github.io/2020/07/10/github搭建hexo博客/</a>
+          <a href="https://mr-daming.github.io/2020/07/24/行为型模式-模板模式/" title="行为型模式 - 模板模式" target="_blank">https://mr-daming.github.io/2020/07/24/行为型模式-模板模式/</a>
         </li>
         
         <li>
@@ -364,7 +329,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -383,15 +352,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hexo常用命令及yilia主题基本配置
-        
-      </div>
-    </a>
   
+    <a href="/2020/07/24/jpa-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E8%BF%94%E5%9B%9E%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BD%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jpa 多表查询返回自定义实体</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -416,7 +381,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#模板模式"><span class="toc-number">1.</span> <span class="toc-text">模板模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现要素："><span class="toc-number">1.1.</span> <span class="toc-text">实现要素：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#适用的业务场景"><span class="toc-number">1.2.</span> <span class="toc-text">适用的业务场景:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-number">1.3.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-number">1.4.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结构："><span class="toc-number">1.5.</span> <span class="toc-text">结构：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#思路整理"><span class="toc-number">2.1.</span> <span class="toc-text">思路整理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可能会有的特殊情况"><span class="toc-number">2.2.</span> <span class="toc-text">可能会有的特殊情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#上代码"><span class="toc-number">2.3.</span> <span class="toc-text">上代码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#制作饮料的抽象类"><span class="toc-number">2.3.1.</span> <span class="toc-text">制作饮料的抽象类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#饮料的具体实现子类：-咖啡"><span class="toc-number">2.3.2.</span> <span class="toc-text">饮料的具体实现子类： 咖啡</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#饮料的具体实现子类：-茶"><span class="toc-number">2.3.3.</span> <span class="toc-text">饮料的具体实现子类： 茶</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#茶和咖啡制作好了："><span class="toc-number">2.3.4.</span> <span class="toc-text">茶和咖啡制作好了：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#加入其他调味品"><span class="toc-number">2.3.5.</span> <span class="toc-text">加入其他调味品</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
