@@ -18,7 +18,7 @@
 <meta property="og:description" content="比事业上失利更让人觉得痛苦的，是不断被拉低的自我认同感，是不得不承认和接纳自己的平凡。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-25T01:28:34.000Z">
-<meta property="article:modified_time" content="2020-07-27T07:33:23.010Z">
+<meta property="article:modified_time" content="2020-07-28T08:59:31.806Z">
 <meta property="article:author" content="Daaa~Ming">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="jpa">
@@ -260,9 +260,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Query(value &#x3D; &quot;select new com.yuange.society.club.model.dto.ToolsDTO( que.id as id, que.title as title, json_length(que.fieldJson) as subjectNum, que.endDate as endDate, tl.publish as publish, tl.cancel as cancel) &quot; +</span><br><span class="line">            &quot;from Questionnaire as que , Tools as tl &quot; +</span><br><span class="line">            &quot;where tl.id &#x3D; que.id and tl.deleted &#x3D; 0 and tl.division.id &#x3D; :id &quot; +</span><br><span class="line">            &quot;order by tl.createTime desc&quot;)</span><br><span class="line">List&lt;ToolsDTO&gt; getToolsDTOByDivision(@Param(&quot;id&quot;) Long id);</span><br></pre></td></tr></table></figure>
 <p>需要注意的是，</p>
 <ol>
-<li>在@Query注解中，<code>nativeQuery = true</code>需要改成false或去掉（默认就是false，为true时表示使用原生SQL查询），表示使用HQL进行查询。<br>此时（HQL）；</li>
-<li>from 后面不是表名了，而是表名对应的实体，字段也是实体字段名了，不是表里面的字段名；</li>
-<li>多表查询时，里面也不再有’left join’这种连接查询了，可以直接在表名后面直接跟逗号再加表名，关联条件放到’where’后面即可；</li>
+<li>在@Query注解中，<code>nativeQuery = true</code>需要改成false或去掉（默认就是false，为true时表示使用原生SQL查询），表示使用HQL进行查询。</li>
+<li>此时（HQL）from 后面不是表名了，而是表名对应的实体，字段也是实体字段名了，不是表里面的字段名；</li>
+<li>多表查询时，里面也不再有’ left join ‘这种连接查询了，可以直接在表名后面直接跟逗号再加表名，关联条件放到’ where ‘后面即可；</li>
 <li>在这个DTO里需要有与查询字段数量及顺序一致的有参构造器(上面的代码中使用了lamdba的<code>@AllArgsConstructor</code>生成了一个全参构造器)；<br>不过我查询时需要用到mysql8的json函数，使用该方法时是不能正常接收的（不含json函数时，是能正常接收到的）。</li>
 </ol>
 <h4 id="2-使用Map接收数据"><a href="#2-使用Map接收数据" class="headerlink" title="2. 使用Map接收数据"></a>2. 使用Map接收数据</h4><p>查询接口和方法1基本一致，不同的就是接收的参数不再是实体了，而是List&lt;Map&lt;String, Object&gt;&gt;这种结构了。用这种方式接收数据时，无论使用HQL（<code>nativeQuery = false</code>）还是SQL（<code>nativeQuery = true</code>）都是可以拿到数据的。</p>

@@ -18,7 +18,7 @@
 <meta property="og:description" content="他问我，如何能让自己更加专注，我对他说很简单，目中无人就是了。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-10T04:41:58.000Z">
-<meta property="article:modified_time" content="2020-07-27T13:37:21.887Z">
+<meta property="article:modified_time" content="2020-07-28T03:21:16.278Z">
 <meta property="article:author" content="Daaa~Ming">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -223,7 +223,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">607字</span>
+      <span class="post-count">639字</span>
     </span>
   </span>
 
@@ -267,6 +267,9 @@
 <p>清除缓存文件（db.json）和已生成的静态文件（public)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
 
+<p>开启置顶功能(top的值越大越靠前)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall hexo-generator-index --save</span><br><span class="line">$ npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
+
 <h2 id="yilia主题配置"><a href="#yilia主题配置" class="headerlink" title="yilia主题配置"></a>yilia主题配置</h2><ul>
 <li>文章目录-<em>所有文章</em>未能正常显示：<ol>
 <li>在hexo目录下打开_config.yml文件，添加如下代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">    meta: false</span><br><span class="line">    pages: false</span><br><span class="line">    posts:</span><br><span class="line">      title: true</span><br><span class="line">      date: true</span><br><span class="line">      path: true</span><br><span class="line">      text: false</span><br><span class="line">      raw: false</span><br><span class="line">      content: false</span><br><span class="line">      slug: false</span><br><span class="line">      updated: false</span><br><span class="line">      comments: false</span><br><span class="line">      link: false</span><br><span class="line">      permalink: false</span><br><span class="line">      excerpt: false</span><br><span class="line">      categories: false</span><br><span class="line">      tags: true</span><br></pre></td></tr></table></figure></li>
@@ -275,7 +278,7 @@
 </ol>
 </li>
 <li>文章截断<br>我们发现在首页时，一篇文章显示过多内容，导致文章模块很长却又显示不全，使文章目录和文章详情功能界限模糊。<br>截断方法：在想要截断的文章位置插入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure></li>
-<li>配置标题、时间、多个标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo基本命令及yilia主题基本配置</span><br><span class="line">date: 2020-07-10 12:41:58</span><br><span class="line">tags: </span><br><span class="line">- Hexo</span><br><span class="line">- Java</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li>
+<li>配置标题、时间、多个标签、置顶<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo基本命令及yilia主题基本配置</span><br><span class="line">date: 2020-07-10 12:41:58</span><br><span class="line">top: 10</span><br><span class="line">tags: </span><br><span class="line">- Hexo</span><br><span class="line">- Java</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li>
 <li>设置中文<br>在hexo下的_config.yml文件中插入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">languages: zh-CN</span><br></pre></td></tr></table></figure></li>
 <li>去除右上角的“fork me on github”标志<br>在hexo下的_config.yml文件中修改成下面的配置(即将url对应的链接改成false)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">github：</span><br><span class="line">	url: false</span><br></pre></td></tr></table></figure>
 </li>
