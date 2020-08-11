@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mr-daming.github.io">
-  <title>3种自定义过滤器 - Filter | daaa~ming</title>
+  <title>RabbitMQ | daaa~ming</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="不管来或不来，人之等待只是为了让自己安静有力。">
+  <meta name="description" content="少年安得长少年，海波尚变为桑田。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3种自定义过滤器 - Filter">
-<meta property="og:url" content="https://mr-daming.github.io/2020/07/11/3%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-Filter/index.html">
+<meta property="og:title" content="RabbitMQ">
+<meta property="og:url" content="https://mr-daming.github.io/2020/08/02/RabbitMQ/index.html">
 <meta property="og:site_name" content="daaa~ming">
-<meta property="og:description" content="不管来或不来，人之等待只是为了让自己安静有力。">
+<meta property="og:description" content="少年安得长少年，海波尚变为桑田。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-11T09:41:52.000Z">
-<meta property="article:modified_time" content="2020-08-11T13:49:15.491Z">
+<meta property="article:published_time" content="2020-08-02T01:40:20.000Z">
+<meta property="article:modified_time" content="2020-08-11T13:53:40.906Z">
 <meta property="article:author" content="Daaa~Ming">
-<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="daaa~ming" type="application/atom+xml">
@@ -190,14 +189,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-3种自定义过滤器-Filter" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-RabbitMQ" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      3种自定义过滤器 - Filter
+      RabbitMQ
     </h1>
   
 
@@ -209,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/07/11/3%E7%A7%8D%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-Filter/" class="archive-article-date">
-        <time datetime="2020-07-11T09:41:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
+<a href="/2020/08/02/RabbitMQ/" class="archive-article-date">
+        <time datetime="2020-08-02T01:40:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
 </a>
 
   
@@ -223,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">457字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -232,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -244,31 +243,121 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>不管来或不来，人之等待只是为了让自己安静有力。</p>
+<p>少年安得长少年，海波尚变为桑田。</p>
 </blockquote>
 <a id="more"></a>
 
-<h3 id="3种Filter-自定义过滤器"><a href="#3种Filter-自定义过滤器" class="headerlink" title="3种Filter 自定义过滤器"></a>3种Filter 自定义过滤器</h3><blockquote>
-<p><em>推荐Function 3</em><br>注：以下的方法1和方法3在配置自定义过滤器时，都需要在启动类上添加 @ServletComponentScan 注解</p>
+
+<blockquote>
+<p>基本概念在上篇已做介绍。此处主要贴下基本的东西和代码，如有需要可翻阅上篇(RabbitMQ之AMQP-高级消息队列协议)</p>
 </blockquote>
-<h4 id="过滤器Filter源码："><a href="#过滤器Filter源码：" class="headerlink" title="过滤器Filter源码："></a>过滤器Filter源码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** 创建 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</span><br><span class="line">    <span class="comment">/** 处理 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span></span></span><br><span class="line"><span class="function"><span class="params">            FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException</span>;</span><br><span class="line">    <span class="comment">/** 销毁 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="流程结构："><a href="#流程结构：" class="headerlink" title="流程结构："></a>流程结构：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A(生产者 - producer 发送消息 - message) --&gt;|指定RoutingKey 设置发送模式| B(交换机 - exchange)</span><br><span class="line">    B --&gt;|匹配路由Routing| C(队列 - queue)</span><br><span class="line">    C --&gt; D(消费者 - consumer)</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><pre><code>1. 应用解耦： 
+    如商城中的订单系统和库存系统，当库存系统出现异常时，使用MQ就可以保证订单正常下单（下单数据做了缓存，待库存系统正常后就可以接着处理订单）;  
+2. 流量削峰：
+    秒杀活动一般会因为流量过大，导致应用挂掉。使用MQ就可以控制活动人数，超过的如果在阈值内，将订单缓存待处理，超出阈值的的订单则直接丢弃；
+3. 异步处理：
+    如注册某个账号，成功后需要发送短信、邮件并做入库记录，而这3步的结果是无需客户端等待的（成功后的步骤），因此使用MQ来保证短信、邮件和入库操作一定成功；
+4. 消息发送
+    一对一发送，一对多发送等，通过一定的配置，在MQ中都是可以实现的，并且可以设置消息的持久化，保证消息发送的成功率；</code></pre><h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>下面以spring boot项目举例：<br>导入maven包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-amqp&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在引入该包时，可能引入成功但是却找不到该包，打开我们的本地仓库就会发现该路径下文件并未下载成功，所以为了避免这种问题，可以在<code>setting.xml</code>文件中设置国内镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;mirrorId&lt;&#x2F;id&gt;</span><br><span class="line">    &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">    &lt;name&gt;Human Readable Name for this Mirror.&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;url&gt;http:&#x2F;&#x2F;central.maven.org&#x2F;maven2&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;mirror&gt;</span><br></pre></td></tr></table></figure>
+<p>配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring: </span><br><span class="line">    rabbitmq:</span><br><span class="line">        host: 10.21.200.16</span><br><span class="line">        port: 5672</span><br><span class="line">        username: rabbitmq</span><br><span class="line">        password: 123456</span><br></pre></td></tr></table></figure>
+
+<p>在上篇中已经介绍了3种（头交换机 - headers 几乎用不到）常用的模式：</p>
+<ul>
+<li>直连型 - direct：默认队列名称为 routingkey 来绑定交换机，指定的路由必须完全匹配才能发送到相应队列；</li>
+<li>广播型 - funout：不需要路由键，当消息进到交换机中时，所有与之绑定的队列都会收到消息；</li>
+<li>主题型 - topic：队列和交换机之间需要绑定，并且发送消息时指定的路由与绑定键符合一定规则匹配的队列，才能收到消息；</li>
+</ul>
+<p>通过一定的规则，我们用主题型可以实现上面2种的基本功能，所以就主要以主题型举例：</p>
+<blockquote>
+<p>以下的队列、交换器、绑定我是写到一个被<code>@Configuration</code>修饰的类中了</p>
+</blockquote>
+<h5 id="创建队列1-2-3："><a href="#创建队列1-2-3：" class="headerlink" title="创建队列1/2/3："></a>创建队列1/2/3：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span>(name = <span class="string">"queue_goods"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">queueGoods</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Queue(<span class="string">"queue_goods"</span>,<span class="keyword">false</span>); <span class="comment">//队列名字，是否持久化</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Bean</span>(name = <span class="string">"queue_key"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">queuePrice</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Queue(<span class="string">"queue_key"</span>,<span class="keyword">false</span>); <span class="comment">//队列名字，是否持久化</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Bean</span>(name = <span class="string">"queue_type_key"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Queue <span class="title">queueSendGoods</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Queue(<span class="string">"queue_type_key"</span>,<span class="keyword">false</span>); <span class="comment">//队列名字，是否持久化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建交换器："><a href="#创建交换器：" class="headerlink" title="创建交换器："></a>创建交换器：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> TopicExchange <span class="title">topicExchange</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> TopicExchange(<span class="string">"topic_exchange_name"</span>, <span class="keyword">false</span>, <span class="keyword">false</span>);<span class="comment">//交换器名称、是否持久化、是否自动删除</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="绑定交换器和队列"><a href="#绑定交换器和队列" class="headerlink" title="绑定交换器和队列"></a>绑定交换器和队列</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">    <span class="function">Binding <span class="title">binding4QueueGoods</span><span class="params">(@Qualifier(<span class="string">"queue_goods"</span>)</span> Queue queue, TopicExchange exchange)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"消息队列：queue_goods, 用绑定键：topic.goods, 绑定了交换器"</span>);</span><br><span class="line">        <span class="keyword">return</span> BindingBuilder.bind(queue).to(exchange).with(<span class="string">"topic.goods"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">Binding <span class="title">binding4QueuePrice</span><span class="params">(@Qualifier(<span class="string">"queue_key"</span>)</span> Queue queue, TopicExchange exchange)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"消息队列：queue_key, 用绑定键：topic.*, 绑定了交换器"</span>);</span><br><span class="line">        <span class="keyword">return</span> BindingBuilder.bind(queue).to(exchange).with(<span class="string">"topic.*"</span>);<span class="comment">//“ * ” 匹配一个单词</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">Binding <span class="title">binding4QueueSendGoods</span><span class="params">(@Qualifier(<span class="string">"queue_type_key"</span>)</span> Queue queue, TopicExchange exchange)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"消息队列：queue_type_key, 用绑定键：topic.#, 绑定了交换器"</span>);</span><br><span class="line">        <span class="keyword">return</span> BindingBuilder.bind(queue).to(exchange).with(<span class="string">"topic.#"</span>);<span class="comment">//“ # ” 匹配多个单词</span></span><br><span class="line">    &#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<h5 id="声明消费者1-2-3"><a href="#声明消费者1-2-3" class="headerlink" title="声明消费者1/2/3"></a>声明消费者1/2/3</h5><p>接受者1（队列名称：queue_goods，绑定键：topic.goods）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MQReceiver_1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RabbitListener</span>(queues = <span class="string">"queue_goods"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiver</span><span class="params">(String message)</span></span>&#123;</span><br><span class="line">        log.info(<span class="string">"MQReceiver_1 通过队列 - queue_goods 接收到：&#123;&#125;"</span>,message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接受者2（队列名称：queue_key，绑定键：topic.*）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MQReceiver_2</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RabbitListener</span>(queues = <span class="string">"queue_key"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiver</span><span class="params">(String message)</span></span>&#123;</span><br><span class="line">        log.info(<span class="string">"MQReceiver_2 通过队列 - queue_key 接收到：&#123;&#125;"</span>,message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接受者3（队列名称：queue_type_key，绑定键：topic.#）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MQReceiver_3</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RabbitListener</span>(queues = <span class="string">"queue_type_key"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiver</span><span class="params">(String message)</span></span>&#123;</span><br><span class="line">        log.info(<span class="string">"MQReceiver_3 通过队列 - queue_type_key 接收到：&#123;&#125;"</span>,message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="声明生产者："><a href="#声明生产者：" class="headerlink" title="声明生产者："></a>声明生产者：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MQSender</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    AmqpTemplate template;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTopicGoods</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//发送消息，（AmqpTemplate 发送的消息数据还可以是对象，但对象必须序列化）</span></span><br><span class="line">        template.convertAndSend(<span class="string">"topic_exchange_name"</span>, <span class="string">"topic.goods"</span>, <span class="string">"路由键 - topic.goods 的消息"</span>);</span><br><span class="line">        log.info(<span class="string">"发送&#123;&#125;"</span>, <span class="string">"路由键为:topic.goods的消息"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTopicKey</span><span class="params">()</span></span>&#123;</span><br><span class="line">        template.convertAndSend(<span class="string">"topic_exchange_name"</span>, <span class="string">"topic.key"</span>, <span class="string">"路由键 - topic.key 的消息"</span>);</span><br><span class="line">        log.info(<span class="string">"发送&#123;&#125;"</span>, <span class="string">"路由键为:topic.key的消息"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendTopicTypeKey</span><span class="params">()</span></span>&#123;</span><br><span class="line">        template.convertAndSend(<span class="string">"topic_exchange_name"</span>, <span class="string">"topic.type.key"</span>, <span class="string">"路由键 - topic.type.key 的消息"</span>);</span><br><span class="line">        log.info(<span class="string">"发送&#123;&#125;"</span>, <span class="string">"路由键为:topic.type.key的消息"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分别调用者三个生产者：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitMQTest</span> <span class="keyword">extends</span> <span class="title">SpringbootApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MQSender mqSender;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">senderMQ_test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//发送topic.goods路由的消息，3个接受者都能收到消息</span></span><br><span class="line">        System.out.println(<span class="string">"----------------------------------------------------"</span>);</span><br><span class="line">        mqSender.sendTopicGoods();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//发送topic.key路由的消息，接受者2（topic.*）和接收者3(topic.#)能收到信息</span></span><br><span class="line">        System.out.println(<span class="string">"----------------------------------------------------"</span>);</span><br><span class="line">        mqSender.sendTopicKey();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//发送topic.type.key路由的消息， 只有接受者3(topic.#)能收到消息</span></span><br><span class="line">        System.out.println(<span class="string">"----------------------------------------------------"</span>);</span><br><span class="line">        mqSender.sendTopicTypeKey();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出整理如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">消息队列：queue_goods, 用绑定键：topic.goods, 绑定了交换器</span><br><span class="line">消息队列：queue_key, 用绑定键：topic.*, 绑定了交换器</span><br><span class="line">消息队列：queue_type_key, 用绑定键：topic.#, 绑定了交换器</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line">发送路由键为:topic.goods的消息</span><br><span class="line">MQReceiver_3 通过队列 - queue_type_key 接收到：路由键 - topic.goods 的消息</span><br><span class="line">MQReceiver_2 通过队列 - queue_key 接收到：路由键 - topic.goods 的消息</span><br><span class="line">MQReceiver_1 通过队列 - queue_goods 接收到：路由键 - topic.goods 的消息</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line">发送路由键为:topic.key的消息</span><br><span class="line">MQReceiver_2 通过队列 - queue_key 接收到：路由键 - topic.key 的消息</span><br><span class="line">MQReceiver_3 通过队列 - queue_type_key 接收到：路由键 - topic.key 的消息</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line">发送路由键为:topic.type.key的消息</span><br><span class="line">MQReceiver_3 通过队列 - queue_type_key 接收到：路由键 - topic.type.key 的消息</span><br></pre></td></tr></table></figure>
 
 
 
-<h4 id="Function-1"><a href="#Function-1" class="headerlink" title="Function 1"></a>Function 1</h4><p>@WebFilter<br>使用该注解来标记一个Filter<br>优点：可以配置拦截规则（urlPatterns = “/*”）；<br>确定：无法指定拦截器Filter的优先级；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(urlPatterns = <span class="string">"/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-----doFilter-----"</span>);</span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="Function-2"><a href="#Function-2" class="headerlink" title="Function 2"></a>Function 2</h4><p>@Bean<br>将过滤器配置成 Bean，注册到 Spring 容器中<br>优点：可以指定拦截器Filter的优先级（越小越优先）；<br>缺点：无法配置拦截规则，只能全部拦截；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Order</span>(-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-----doFilter-----"</span>);</span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="Function-3"><a href="#Function-3" class="headerlink" title="Function 3"></a>Function 3</h4><p>FilterRegistrationBean<br>将过滤器配置成FilterRegistrationBean，注册到Spring 容器中<br>优点：可以配置拦截规则，可以指定拦截器Filter的优先级（越小越优先）；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilterT1</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-----------------------------------MyFilterT1-----------------------------------"</span>);</span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilterT2</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-----------------------------------MyFilterT2-----------------------------------"</span>);</span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">FilterRegistrationBean&lt;MyFilterT1&gt; <span class="title">myFilterFilterRegistrationBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;MyFilterT1&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> MyFilterT1());</span><br><span class="line">        bean.setOrder(-<span class="number">2</span>);<span class="comment">//指定过滤器优先级，小的优先</span></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">"/*"</span>));<span class="comment">//指定过滤路径</span></span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">FilterRegistrationBean&lt;MyFilterT2&gt; <span class="title">myFilterFilterRegistrationBean2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;MyFilterT2&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> MyFilterT2());</span><br><span class="line">        bean.setOrder(-<span class="number">1</span>);</span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">"/user/*"</span>));</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
@@ -284,7 +373,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://mr-daming.github.io/2020/07/11/3种自定义过滤器-Filter/" title="3种自定义过滤器 - Filter" target="_blank">https://mr-daming.github.io/2020/07/11/3种自定义过滤器-Filter/</a>
+          <a href="https://mr-daming.github.io/2020/08/02/RabbitMQ/" title="RabbitMQ" target="_blank">https://mr-daming.github.io/2020/08/02/RabbitMQ/</a>
         </li>
         
         <li>
@@ -301,17 +390,6 @@
   <div class="article-info article-info-index">
     
     
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
     
 
     
@@ -325,18 +403,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/07/12/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/08/11/AOP%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E5%AE%9E%E7%8E%B0%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          接口的幂等性
+          AOP及自定义注解实现日志记录
         
       </div>
     </a>
   
   
-    <a href="/2020/07/10/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo常用命令及yilia主题基本配置</div>
+    <a href="/2020/08/01/AMPQ-%E9%AB%98%E7%BA%A7%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%8D%8F%E8%AE%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AMPQ-高级消息队列协议</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -363,7 +441,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3种Filter-自定义过滤器"><span class="toc-number">1.</span> <span class="toc-text">3种Filter 自定义过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤器Filter源码："><span class="toc-number">1.1.</span> <span class="toc-text">过滤器Filter源码：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Function-1"><span class="toc-number">1.2.</span> <span class="toc-text">Function 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Function-2"><span class="toc-number">1.3.</span> <span class="toc-text">Function 2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Function-3"><span class="toc-number">1.4.</span> <span class="toc-text">Function 3</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#流程结构："><span class="toc-number">1.</span> <span class="toc-text">流程结构：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用场景："><span class="toc-number">2.</span> <span class="toc-text">应用场景：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例："><span class="toc-number">3.</span> <span class="toc-text">示例：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建队列1-2-3："><span class="toc-number">3.1.</span> <span class="toc-text">创建队列1&#x2F;2&#x2F;3：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建交换器："><span class="toc-number">3.2.</span> <span class="toc-text">创建交换器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#绑定交换器和队列"><span class="toc-number">3.3.</span> <span class="toc-text">绑定交换器和队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#声明消费者1-2-3"><span class="toc-number">3.4.</span> <span class="toc-text">声明消费者1&#x2F;2&#x2F;3</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#声明生产者："><span class="toc-number">3.5.</span> <span class="toc-text">声明生产者：</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
